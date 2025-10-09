@@ -1,6 +1,8 @@
 
 import { Link } from 'react-router-dom';
 import Header from '../Components/Cabecalho';
+import HomeCard1 from './HomeCard1';
+import HomeCard2 from './HomeCard2';
 import '../Style/Home.css';
 import { produtosDados } from "../Dados/Produtos";
 
@@ -16,54 +18,8 @@ function Home() {
   return (
     <div className='home-container'>  
       <Header />
-
-      <div className='cardProduto'>
-        {nomesUnicos.map((nome, index) => {
-          const slug = toSlug(nome);
-          return (
-            <Link
-              to={`/grafico/${slug}`}
-              key={index}
-              className="produto-card-link"
-            >
-              <div className="nomeProduto">
-                {nome}
-              </div>
-            </Link>
-          );
-        })}
-      </div>
-
-
-{/* PENSAR EM SEPARAR AS PAGINAS - 
-  CARD APENAS NOME PRODUTO 
-  CARD COM NOME PRODUTO E MARCA*/}
-
-
-       <div className='cardProduto'>
-         {[...new Map(produtosDados.map(item => [item.marca, item])).values()].map((item, index) => {
-          const nomeURL = item.nome
-            .toLowerCase()
-            .normalize("NFD").replace(/[\u0300-\u036f]/g, "")  // remove acentos
-            .replace(/\s+/g, '');  // remove espaços
-
-          return (
-            <Link
-              to={`/grafico/${nomeURL}`}
-              key={index}
-              className="produto-card-link"
-            >
-              <div className="nomeProduto">
-                {item.nome} <br />
-                {item.marca}
-              </div>
-            </Link>
-          );
-        })}
-      </div>
-
-
-
+      <HomeCard1 />
+      <HomeCard2 />
 
     </div>
   );
@@ -71,7 +27,55 @@ function Home() {
 
 export default Home;
 
+//       <div className='cardProduto'>
+//         {nomesUnicos.map((nome, index) => {
+//           const slug = toSlug(nome);
+//           return (
+//             <Link
+//               to={`/grafico/${slug}`}
+//               key={index}
+//               className="produto-card-link"
+//             >
+//               <div className="nomeProduto">
+//                 {nome}
+//               </div>
+//             </Link>
+//           );
+//         })}
+//       </div>
 
+
+// {/* PENSAR EM SEPARAR AS PAGINAS - 
+//   CARD APENAS NOME PRODUTO 
+//   CARD COM NOME PRODUTO E MARCA*/}
+
+
+//        <div className='cardProduto'>
+//          {[...new Map(produtosDados.map(item => [item.marca, item])).values()].map((item, index) => {
+//           const nomeURL = item.nome
+//             .toLowerCase()
+//             .normalize("NFD").replace(/[\u0300-\u036f]/g, "")  // remove acentos
+//             .replace(/\s+/g, '');  // remove espaços
+
+//           return (
+//             <Link
+//               to={`/grafico/${nomeURL}`}
+//               key={index}
+//               className="produto-card-link"
+//             >
+//               <div className="nomeProduto">
+//                 {item.nome} <br />
+//                 {item.marca}
+//               </div>
+//             </Link>
+//           );
+//         })}
+//       </div>
+
+
+
+
+//////////////////////////////////////////////////////////
 
 // import React from "react";
 // import { Link } from "react-router-dom";

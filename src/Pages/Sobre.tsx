@@ -2,10 +2,16 @@
 function Sobre(){
     return(
         <div>
-            Sobre
+
+Sobre
+
+
         </div>
     )
 }
 
 export default Sobre
+
+
+
 
