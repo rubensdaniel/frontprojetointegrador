@@ -1,0 +1,17 @@
+.grafico {
+    width: 30%;
+    height: 300px;
+}
+
+h3{
+    margin: 0 0 8px 0;
+}
+
+.grafico-container {
+  width: 100%;
+  height: 400px;
+  background-color: #f9f9f9;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid #ccc;
+}
