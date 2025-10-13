@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import type { ChangeEvent } from "react";
 import Cabecalho from "../Components/Cabecalho";
 import type { Usuarios } from "./usuarios";
+import { api} from "./api"
 
 
 function RequisicoesPost () {
@@ -21,11 +22,10 @@ function RequisicoesPost () {
 
     const carregarUsuarios = async () => {        
         setLoading(true);
-        let response = await fetch('https://jsonplaceholder.typicode.com/todos/1');    
-        let json = await response.json(); 
-
+//        let response = await fetch('https://jsonplaceholder.typicode.com/todos/1');    
+//        let json = await response.json(); 
+        let json = await api.CarregarTodosUsuarios();
         const dataArray = Array.isArray(json) ? json: [json]
-
         setLoading(false);
         setUsuarios(dataArray);    
     }   
