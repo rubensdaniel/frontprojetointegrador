@@ -36,10 +36,13 @@ function RequisicoesPost () {
 
     const carregarUmUsuario = async () => {        
         setLoading(true);
-        let json = await api.CarregarUsuario();
+//        let json = await api.CarregarUsuario();
+        let json = await api.CarregarUsuario(usuarioId);
         const dataArray = Array.isArray(json) ? json: [json]
         setLoading(false);
-        setUsuarios(dataArray);    
+        //setUsuarios(dataArray);    
+        setUsuarios([json]);
+
     }   
 
     // FUNÇÕES PARA ALTERAR OS CAMPOS CRIADOS NA TELA.
@@ -120,6 +123,8 @@ function RequisicoesPost () {
                 <button onClick={carregarUsuarios}> Carregar Usuários </button>
                 <input type="number" value={usuarioId} onChange={(e) => setUsuarioId(Number(e.target.value))} />
                 <button onClick={carregarUmUsuario}>Carregar</button>
+                
+
 
                 <br />
                 Total de Usuarios: {usuarios.length} 
@@ -159,6 +164,8 @@ function RequisicoesPost () {
             {usuarios.map((item, index) => (
                 <div key={index} >                    
                     USER ID: {item.userId}
+                    <br />
+                    ID: {item.id}
                     <br />
                     TÍTULO: {item.title}                    
                     <br />                    

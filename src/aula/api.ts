@@ -6,7 +6,7 @@ export const api = {
     },
 
 
-    CarregarUsuario: async () => {
+    CarregarUsuario: async (usuarioId: number) => {
         let response = await fetch(`https://jsonplaceholder.typicode.com/todos/${usuarioId}`);
         let json = await response.json();
         return json;
