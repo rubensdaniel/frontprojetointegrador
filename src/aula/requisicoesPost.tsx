@@ -3,6 +3,7 @@ import type { ChangeEvent } from "react";
 import Cabecalho from "../Components/Cabecalho";
 import type { Usuarios } from "./usuarios";
 import { api} from "./api"
+import type { Produtos } from "./produtos";
 
 
 
@@ -12,6 +13,7 @@ function RequisicoesPost () {
         const [usuarioId, setUsuarioId] = useState<number>(1);
 
         //Constantes
+        const [produtos , setProdutos] = useState<Produtos[]>([]);
         const [usuarios , setUsuarios] = useState<Usuarios[]>([]);
         const [loading, setLoading] = useState(false);
 
@@ -33,6 +35,17 @@ function RequisicoesPost () {
         setLoading(false);
         setUsuarios(dataArray);    
     }   
+
+
+    const CarregarProdutos = async () => {        
+        setLoading(true);
+        let json = await api.CarregarProduto();
+        const dataArray = Array.isArray(json) ? json: [json]
+        setLoading(false);
+        setProdutos(dataArray);    
+    }   
+
+
 
     const carregarUmUsuario = async () => {        
         setLoading(true);
@@ -120,11 +133,13 @@ function RequisicoesPost () {
         {!loading &&
             <div>
                 <h1>PAGINA EXEMPLO DE REQUISIÇÕES</h1>
+                
+
                 <button onClick={carregarUsuarios}> Carregar Usuários </button>
                 <input type="number" value={usuarioId} onChange={(e) => setUsuarioId(Number(e.target.value))} />
                 <button onClick={carregarUmUsuario}>Carregar</button>
                 
-
+                <button onClick={CarregarProdutos}> Carregar Produtos </button>
 
                 <br />
                 Total de Usuarios: {usuarios.length} 
@@ -174,6 +189,22 @@ function RequisicoesPost () {
 
             ) )}
         </div>
+
+        <h1>Lista de Produtos</h1>
+        <div>
+            {produtos.map((item, index) => (
+                <div key={index} >                    
+                    ID: {item.id}
+                    <br />
+                    Nome: {item.nome}<br />
+                    Marca: {item.marca}<br />
+                    Peso: {item.peso}<br />
+                    Preço: {item.preco}<br />                    
+                    <hr />
+                </div>
+
+            ) )}
+        </div>        
 
      
     </div>
