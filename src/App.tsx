@@ -56,7 +56,7 @@ function App() {
       <Route path='/requisicao' element={<Requisitos />}></Route>     
       <Route path='/avhome' element={<AvHome />}></Route>     
       <Route path='/post' element={<RequisicaoPost />}></Route>     
-      RequisicaoPost
+      
 
 
     </Routes>

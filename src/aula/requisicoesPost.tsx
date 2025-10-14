@@ -5,7 +5,11 @@ import type { Usuarios } from "./usuarios";
 import { api} from "./api"
 
 
+
+
 function RequisicoesPost () {
+
+        const [usuarioId, setUsuarioId] = useState<number>(1);
 
         //Constantes
         const [usuarios , setUsuarios] = useState<Usuarios[]>([]);
@@ -30,10 +34,21 @@ function RequisicoesPost () {
         setUsuarios(dataArray);    
     }   
 
+    const carregarUmUsuario = async () => {        
+        setLoading(true);
+        let json = await api.CarregarUsuario();
+        const dataArray = Array.isArray(json) ? json: [json]
+        setLoading(false);
+        setUsuarios(dataArray);    
+    }   
+
     // FUNÇÕES PARA ALTERAR OS CAMPOS CRIADOS NA TELA.
     const handleAddTitleChange = (e: ChangeEvent<HTMLInputElement>) => {
         setaddTitleText(e.target.value)
     }
+
+
+
 
     const handleAddBodyChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
         setaddBodyText(e.target.value)
@@ -57,7 +72,7 @@ function RequisicoesPost () {
                                                 // campos requisitados pela API.
                                                 title: addTitleText,
                                                 body: addBodyText,
-                                                userID: 1
+                                                userId: 1
                                             }),
                                             headers: {
                                                 // Caso seja necessário o envio de algum parametro no cabeçalho da requisição, se faz aqui.
@@ -103,9 +118,15 @@ function RequisicoesPost () {
             <div>
                 <h1>PAGINA EXEMPLO DE REQUISIÇÕES</h1>
                 <button onClick={carregarUsuarios}> Carregar Usuários </button>
+                <input type="number" value={usuarioId} onChange={(e) => setUsuarioId(Number(e.target.value))} />
+                <button onClick={carregarUmUsuario}>Carregar</button>
+
                 <br />
                 Total de Usuarios: {usuarios.length} 
              </div>
+
+
+
         }
 
         {/* CRIANDO OS ELEMENTOS PARA SEREM TRATADOS NA INSERÇÃO VIA POST. */}
