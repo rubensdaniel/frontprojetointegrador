@@ -19,6 +19,7 @@ import Condicional from './Pages/condicional'
 import AvHome from './aula/AtvHome'
 import Requisitos from './aula/requisicoes'
 import RequisicaoPost from './aula/requisicoesPost'
+//import Rodape from './Components/rodape'
 
 //import loginLogar from './contexts/login'
 //import { UsuarioLogadoContext } from './contexts/contextAuth'
@@ -46,6 +47,7 @@ function App() {
       <Route path='/sugestaoproduto' element={<SugestaoProduto />}/>
       <Route path='/cadastroadm' element={<CadastroAdm />}/>
       <Route path='/sobre/termouso' element={<TermoUso />}></Route>
+      
       <Route path="/grafico/arroz" element={<ProdutoChart nomeProduto="Arroz" />}/>
       <Route path="/grafico/feijao" element={<ProdutoChart nomeProduto="Feijão" />}/>
       <Route path="/grafico/farinhadetrigo" element={<ProdutoChart nomeProduto="Farinha de trigo" />}/>

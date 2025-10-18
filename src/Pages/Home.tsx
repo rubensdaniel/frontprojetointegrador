@@ -1,6 +1,7 @@
 
-import { Link } from 'react-router-dom';
+//import { Link } from 'react-router-dom';
 import Header from '../Components/Cabecalho';
+import Rodape from '../Components/rodape';
 import HomeCard1 from './HomeCard1';
 import HomeCard2 from './HomeCard2';
 import '../Style/Home.css';
@@ -20,7 +21,7 @@ function Home() {
       <Header />
       <HomeCard1 />
       <HomeCard2 />
-
+      <Rodape />
     </div>
   );
 };

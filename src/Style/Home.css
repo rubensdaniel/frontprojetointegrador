@@ -2,10 +2,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: calc(100vh - 60px); 
     width: 100%;
     text-align: center;
-    background-color: #6CBBDC;
+    background-color: #141E35;
   }
 
 .cardProduto {

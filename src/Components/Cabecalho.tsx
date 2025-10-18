@@ -18,12 +18,12 @@ const Header = () => {
           <li className="nav-item dropdown">
             <span className="nav-link">Cadastro ▾</span>
             <ul className="dropdown-menu">
-              <li><Link to="/cadastromercado" className="nav-link">Cadastro Mercado</Link></li>
-              <li><Link to="/cadastroproduto" className="nav-link">Cadastro Produto</Link></li>
+              <li><Link to="/cadastromercado" className="nav-sublink">Cadastro Mercado</Link></li>
+              <li><Link to="/cadastroproduto" className="nav-sublink">Cadastro Produto</Link></li>
             </ul>
           </li>
 
-          <li><Link to="/sobre" className="nav-link">Sobre</Link></li>
+          
           <li><Link to="/comparativos" className="nav-link">Comparativos</Link></li>
 
         </ul>
