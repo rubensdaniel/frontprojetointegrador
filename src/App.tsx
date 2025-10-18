@@ -46,7 +46,7 @@ function App() {
       <Route path='/atualizacaoprecoadm' element={<AtualizacaoPrecoAdm />}/>
       <Route path='/sugestaoproduto' element={<SugestaoProduto />}/>
       <Route path='/cadastroadm' element={<CadastroAdm />}/>
-      <Route path='/sobre/termouso' element={<TermoUso />}></Route>
+      <Route path='/termouso' element={<TermoUso />}></Route>
       
       <Route path="/grafico/arroz" element={<ProdutoChart nomeProduto="Arroz" />}/>
       <Route path="/grafico/feijao" element={<ProdutoChart nomeProduto="Feijão" />}/>
