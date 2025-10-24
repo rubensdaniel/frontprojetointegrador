@@ -1,51 +1,97 @@
-import { useNavigate } from 'react-router-dom';
-import '../Style/Login.css';
-import { useState } from 'react';
+import { useState } from "react";
+import type { ChangeEvent } from "react";
+import Cabecalho from "../Components/Cabecalho";
 
-const Login = () => {
-    const navigate = useNavigate();
-  
-    const handleCadastro = () => {
-      navigate('/Cadastrousuario');
-    };
+function Login() {
+  const [loading, setLoading] = useState(false);
 
-    const [email, setEmail] = useState('');
-    function modificarEmail (evento: React.ChangeEvent <HTMLInputElement>){
-      setEmail(evento.target.value)
-    }
+  const [usuarioInput, setUsuarioInput] = useState("");
+  const [senhaInput, setSenhaInput] = useState("");
 
-    const [senha, setSenha] = useState('');
-    function modificarSenha (evento: React.ChangeEvent <HTMLInputElement>){
-      setSenha(evento.target.value)
-    }
-  
-    return (
-      <div className="login-page">
-        <div className="login-container">
-          <h2>Login</h2>
-          <form className="login-form">
-            <div className="form-group">
-              <label htmlFor="email">E-mail:</label>
-              <input type='text' value={email} onChange={modificarEmail} />
-              <hr />
-              Seu e-mail é: {email}
-            </div>
-  
-            <div className="form-group">
-              <label htmlFor="password">Senha:</label>
-              <input type='text' value={senha} onChange={modificarSenha}/>
-              <hr />
-              Sua senha é: {senha}
-            </div>
-  
-            <div className="button-group">
-              <button type="submit">Login</button>
-              <button type="button" onClick={handleCadastro}>Cadastrar</button>
-            </div>
-          </form>
-        </div>
-      </div>
-    );
+  const handleUsuarioChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setUsuarioInput(e.target.value);
   };
-  
-  export default Login;
+
+  const handleSenhaChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setSenhaInput(e.target.value);
+  };
+
+  const handleLoginClick = async () => {
+    if (!usuarioInput || !senhaInput) {
+      alert("Preencha as informações.");
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+      const response = await fetch("http://localhost:3000/usuarios", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          usuario: usuarioInput,
+          senha: senhaInput,
+        }),
+      });
+
+      if (response.ok) {
+        const json = await response.json();
+        alert("Login realizado com sucesso!");
+
+        // Armazena o token no localStorage
+        localStorage.setItem("token", json.token);
+
+        // Limpa os campos
+        setUsuarioInput("");
+        setSenhaInput("");
+
+        // Você pode redirecionar ou mostrar conteúdo autenticado aqui
+      } else if (response.status === 401) {
+        alert("Usuário ou senha incorretos.");
+      } else {
+        alert("Erro ao fazer login.");
+      }
+    } catch (error) {
+      console.error(error);
+      alert("Erro ao enviar os dados.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <div>
+      <Cabecalho />
+
+      <hr />
+      {loading && <div>Carregando conteúdo...</div>}
+
+      <div>
+        <hr />
+        <h2>Login</h2>
+        <br />
+        <input
+          value={usuarioInput}
+          type="text"
+          placeholder="Digite o usuário"
+          onChange={handleUsuarioChange}
+        />
+        <br />
+        <br />
+        <input
+          value={senhaInput}
+          type="password"
+          placeholder="Digite a senha"
+          onChange={handleSenhaChange}
+        />
+        <br />
+        <br />
+        <button onClick={handleLoginClick}>Entrar</button>
+        <hr />
+      </div>
+    </div>
+  );
+}
+
+export default Login;
+

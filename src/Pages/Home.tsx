@@ -1,7 +1,7 @@
 
 //import { Link } from 'react-router-dom';
 import Header from '../Components/Cabecalho';
-import Rodape from '../Components/rodape';
+import Rodape from '../Components/Rodape';
 import HomeCard1 from './HomeCard1';
 import HomeCard2 from './HomeCard2';
 import '../Style/Home.css';
