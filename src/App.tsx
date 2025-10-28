@@ -12,13 +12,20 @@ import AtualizacaoPreco from './Pages/Atualizacao-preco'
 import AtualizacaoPrecoAdm from './Pages/Atualizacao-precoAdm'
 import SugestaoProduto from './Pages/Sugestao-produtos'
 import CadastroAdm from './Pages/Cadastro-adm'
-import TermoUso from './Pages/Termo-de-uso'
-import ProdutoChart from './Pages/ProdutoChart'
+import Cookies from './Pages/Cookies'
 
+import TermoUso from './Pages/Termo-de-uso'
+
+
+import ProdutoChart from './Pages/ProdutoChart'
 import Condicional from './Pages/condicional'
+
+
+
 import AvHome from './aula/AtvHome'
 import Requisitos from './aula/requisicoes'
 import RequisicaoPost from './aula/requisicoesPost'
+
 //import Rodape from './Components/rodape'
 
 //import loginLogar from './contexts/login'
@@ -47,6 +54,7 @@ function App() {
       <Route path='/sugestaoproduto' element={<SugestaoProduto />}/>
       <Route path='/cadastroadm' element={<CadastroAdm />}/>
       <Route path='/termouso' element={<TermoUso />}></Route>
+      <Route path='/cookies' element={<Cookies />}/>
       
       <Route path="/grafico/arroz" element={<ProdutoChart nomeProduto="Arroz" />}/>
       <Route path="/grafico/feijao" element={<ProdutoChart nomeProduto="Feijão" />}/>
