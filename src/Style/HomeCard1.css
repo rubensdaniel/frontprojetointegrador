@@ -1,0 +1,150 @@
+/* === SEÇÃO PRINCIPAL === */
+.product-section {
+  background-color: #f9fafb;
+  padding: 4rem 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: #1e293b;
+}
+
+.subtitle {
+  font-size: 1rem;
+  color: #64748b;
+  margin-bottom: 2.5rem;
+}
+
+/* === GRID DE PRODUTOS === */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  justify-content: center;
+}
+
+/* === LINK DO CARD === */
+.produto-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+/* === CARD DE PRODUTO === */
+.product-card {
+  background-color: #f4f8f5;
+  border-radius: 1.2rem;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* === ICONE === */
+.product-image {
+  background-color: #edf6ef;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 180px;
+  font-size: 3rem;
+}
+
+/* === CONTEÚDO === */
+.product-info {
+  background-color: #ffffff;
+  padding: 1.5rem 1.2rem;
+  text-align: left;
+  border-top: 1px solid #e2e8f0;
+}
+
+.category {
+  display: inline-block;
+  font-size: 0.8rem;
+  color: #15803d;
+  background-color: #dcfce7;
+  padding: 0.2rem 0.6rem;
+  border-radius: 0.5rem;
+  margin-bottom: 0.6rem;
+}
+
+.product-info h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 1rem;
+}
+
+/* === LISTA DE PREÇOS === */
+.price-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.price-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f1f5f9;
+  border-radius: 0.6rem;
+  padding: 0.5rem 0.8rem;
+  font-size: 0.95rem;
+  color: #334155;
+}
+
+.price-row.best {
+  background-color: #dcfce7;
+  color: #166534;
+  font-weight: 600;
+}
+
+/* === BOX DE ECONOMIA === */
+.discount {
+  background-color: #fb923c;
+  color: #ffffff;
+  font-weight: 500;
+  font-size: 0.9rem;
+  text-align: center;
+  border-radius: 0.6rem;
+  padding: 0.7rem;
+  margin-top: 0.5rem;
+  transition: background-color 0.2s ease;
+}
+
+.discount:hover {
+  background-color: #f97316;
+}
+
+/* === RESPONSIVO === */
+@media (max-width: 768px) {
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .product-card {
+    max-width: 360px;
+    margin: 0 auto;
+  }
+
+  .product-image {
+    height: 150px;
+    font-size: 2.5rem;
+  }
+}
+

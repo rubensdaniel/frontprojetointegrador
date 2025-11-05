@@ -1,7 +1,7 @@
 
 import { Link } from 'react-router-dom';
-import Header from '../Components/Cabecalho';
-import '../Style/Home.css';
+//import Header from '../Components/Cabecalho';
+//import '../Style/Home.css';
 import { produtosDados } from "../Dados/Produtos";
 
 function HomeCard2() {
@@ -15,14 +15,6 @@ function HomeCard2() {
 
   return (
     <div className='home-container'>  
-
-
-
-{/* PENSAR EM SEPARAR AS PAGINAS - 
-  CARD APENAS NOME PRODUTO 
-  CARD COM NOME PRODUTO E MARCA*/}
-
-
        <div className='cardProduto'>
          {[...new Map(produtosDados.map(item => [item.marca, item])).values()].map((item, index) => {
           const nomeURL = item.nome
