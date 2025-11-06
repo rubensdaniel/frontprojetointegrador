@@ -1,8 +1,33 @@
+/* Hero.css */
+
+/* Cores base do design system */
+:root {
+  --background: hsl(0 0% 100%);
+  --foreground: hsl(142 71% 20%);
+
+  --primary: hsl(142 71% 45%);
+  --primary-light: hsl(142 65% 55%);
+  --gradient-primary: linear-gradient(135deg, hsl(142 71% 45%) 0%, hsl(142 65% 55%) 100%);
+
+  --accent: hsl(25 95% 53%);
+  --accent-light: hsl(38 92% 50%);
+  --gradient-accent: linear-gradient(135deg, hsl(25 95% 53%) 0%, hsl(38 92% 50%) 100%);
+
+  --muted-foreground: hsl(142 15% 45%);
+  --gradient-hero: linear-gradient(180deg, hsl(142 60% 97%) 0%, hsl(0 0% 100%) 100%);
+}
+
 .footer-empresa {
-  background-color: #141E35; /* Azul escuro elegante */
-  color: #fff;
-  padding: 50px 0 30px;
-  font-family: 'Segoe UI', Arial, sans-serif;
+  position: relative;
+  background: var(--gradient-hero);
+  padding: 5rem 1rem;
+  text-align: center;
+  color: var(--foreground);
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .footer-container {
@@ -21,7 +46,7 @@
 }
 
 .footer-coluna h4 {
-  color: #3fa9f5; /* Azul claro (igual à imagem) */
+  color: var(--foreground);
   font-size: 1rem;
   font-weight: 600;
   margin-bottom: 15px;
@@ -37,7 +62,7 @@
 }
 
 .footer-coluna a {
-  color: #fff;
+  color: var(--foreground);
   text-decoration: underline;
   font-size: 0.95rem;
   transition: color 0.3s;
@@ -48,12 +73,13 @@
 }
 
 .footer-bottom {
-  background-color: #031230;
+  background-color: var(--gradient-hero);
   text-align: center;
   padding: 15px;
-  color: #ccc;
+  color: var(--foreground);
   font-size: 0.9rem;
   border-top: 1px solid #0e2a6a;
+  
 }
 
 /* Responsivo */

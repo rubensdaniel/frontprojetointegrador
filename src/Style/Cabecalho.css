@@ -1,93 +1,101 @@
-header{
-  background-color: #6CBBDC;
+/* Hero.css */
+
+/* Cores base do design system */
+:root {
+  --background: hsl(0 0% 100%);
+  --foreground: hsl(142 71% 20%);
+
+  --primary: hsl(142 71% 45%);
+  --primary-light: hsl(142 65% 55%);
+  --gradient-primary: linear-gradient(135deg, hsl(142 71% 45%) 0%, hsl(142 65% 55%) 100%);
+
+  --accent: hsl(25 95% 53%);
+  --accent-light: hsl(38 92% 50%);
+  --gradient-accent: linear-gradient(135deg, hsl(25 95% 53%) 0%, hsl(38 92% 50%) 100%);
+
+  --muted-foreground: hsl(142 15% 45%);
+  --gradient-hero: linear-gradient(180deg, hsl(142 60% 97%) 0%, hsl(0 0% 100%) 100%);
 }
 
-
-.bannerheader{
-  width: 100%;
-  height: 150px;
-}
-
-
-.nav-list {
-  list-style: none;
-  color: gray;
-  display: flex;
-  gap: 20px;
-  align-items: center;
-}
-
-.nav-list li {
+.hero {
   position: relative;
+  background: var(--gradient-hero);
+  padding: 5rem 1rem;
+  text-align: center;
+  color: var(--foreground);
 }
 
-a.nav-link {
-  color: white;
-
+.hero-container {
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-
-/* Links dentro do dropdown */
-.nav-sublink {
-  display: block;
-  padding: 10px 30px;
-  color: #333;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  font-size: 0.95rem;
+.hero h1 {
+  font-size: 4rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-/* Hover mais moderno */
-.nav-sublink:hover {
-  background-color: #f5f5f5;
-  color: gray;
-  padding-left: 25px; 
+.hero p {
+  color: var(--muted-foreground);
+  margin-bottom: 0.5rem;
 }
 
-span.nav-link{
-  color: white;
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 500px;
+  margin: 2rem auto 0 auto;
+  justify-content: center;
 }
 
-
-.nav-link {
-
-  color: black;
-  padding: 10px 15px;
-  display: block;
+.buttons button {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  border: none;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
 }
 
-/* Estilos para submenu */
-.dropdown-menu {
-  display: none;
-  position: absolute;
-  top: 100%; /* abaixo do item pai */
-  left: 0;
-  background-color: white;
-  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.15);
-  padding: 0;
-  list-style: none;
-  z-index: 1000;
-  min-width: 180px;
+.buttons button.primary {
+  background: var(--gradient-primary);
+  color: hsl(0 0% 100%);
 }
 
-.dropdown-menu li {
-  width: 100%;
+.buttons button.primary:hover {
+  opacity: 0.9;
 }
 
-.dropdown-menu .nav-link {
-  padding: 10px 15px;
-  white-space: nowrap;
+.buttons button.outline {
+  background: transparent;
+  border: 2px solid var(--primary);
+  color: var(--primary);
 }
 
-.nav-item:hover .dropdown-menu {
-  color: white;
-  display: block;
+.buttons button.outline:hover {
+  background: hsla(142, 71%, 45%, 0.1);
 }
 
-/* Ícone de seta opcional */
-.nav-item > .nav-link::after {
-  content: '';
-  margin-left: 5px;
+.stats {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
 }
 
-
+@media (min-width: 640px) {
+  .buttons {
+    flex-direction: row;
+  }
+}

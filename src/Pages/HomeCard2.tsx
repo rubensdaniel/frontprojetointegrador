@@ -1,8 +1,8 @@
 
 import { Link } from 'react-router-dom';
-//import Header from '../Components/Cabecalho';
-//import '../Style/Home.css';
+
 import { produtosDados } from "../Dados/Produtos";
+import "../Style/HomeCard1.css";
 
 function HomeCard2() {
   // Pegamos os nomes únicos de produtos
@@ -13,9 +13,9 @@ function HomeCard2() {
         .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
         .replace(/\s+/g, '');
 
-  return (
-    <div className='home-container'>  
-       <div className='cardProduto'>
+    return (
+    <div className='product-section'>  
+       <div className="product-grid">
          {[...new Map(produtosDados.map(item => [item.marca, item])).values()].map((item, index) => {
           const nomeURL = item.nome
             .toLowerCase()
@@ -28,7 +28,7 @@ function HomeCard2() {
               key={index}
               className="produto-card-link"
             >
-              <div className="nomeProduto">
+              <div className="product-info">
                 {item.nome} <br />
                 {item.marca}
               </div>
@@ -36,13 +36,10 @@ function HomeCard2() {
           );
         })}
       </div>
-
-
-
-
     </div>
   );
 };
 
 export default HomeCard2;
+
 

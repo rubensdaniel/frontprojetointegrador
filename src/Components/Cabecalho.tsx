@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
-//import '../Style/Cabecalho.css';
-import "../Style/Hero.css";
+import '../Style/Cabecalho.css';
+//import "../Style/Hero.css";
 
 
 // const Header = () => {
@@ -50,8 +50,8 @@ import "../Style/Hero.css";
         <p>Encontre os menores preços em mercados</p>
         <p>Compare produtos e economize nas suas compras</p>
         <div className="mt-8 flex justify-center gap-6 text-sm text-muted-foreground">
-          <span>🏪 +50 mercados</span>
-          <span>📦 +1000 produtos</span>
+          <span>🏪 +4 mercados</span>
+          <span>📦 +5 produtos</span>
           <span>💰 Economia garantida</span>
         </div>
       </div>
