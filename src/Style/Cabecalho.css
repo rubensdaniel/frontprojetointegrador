@@ -20,7 +20,7 @@
 .hero {
   position: relative;
   background: var(--gradient-hero);
-  padding: 5rem 1rem;
+  padding: 2rem 1rem;
   text-align: center;
   color: var(--foreground);
 }
