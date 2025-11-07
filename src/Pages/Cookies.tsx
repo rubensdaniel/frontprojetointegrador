@@ -1,8 +1,10 @@
 import '../Style/Cookies.css'
+import Header from '../Components/Cabecalho';
 
 function Cookies(){
     return(
         <>
+  <Header />
   <header>
     <h1>Política de Cookies</h1>
   </header>

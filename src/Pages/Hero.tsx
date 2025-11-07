@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 //import { useNavigate } from "react-router-dom";
 //import { useEffect, useState } from "react";
 //import type { User } from '@supabase/supabase-js';
@@ -28,7 +29,7 @@ const Hero = () => {
   return (
     <section className="hero">
       <div className="hero-container">
-        <h1>Comparaki</h1>
+        <h1><Link to="/" className="logo-link">Comparaki</Link></h1>
         <p>Encontre os menores preços em mercados</p>
         <p>Compare produtos e economize nas suas compras</p>
 

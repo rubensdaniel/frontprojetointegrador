@@ -1,9 +1,12 @@
 import '../Style/sobre.css'
+import Header from '../Components/Cabecalho';
 
 
 function TermoUso() {
     return (
-<div className="termos-uso">
+<>
+  <Header />
+  <div className="termos-uso">
   <h2>Termos de Uso</h2>
   <p><strong>Última atualização:</strong> [coloque a data]</p>
 
@@ -66,9 +69,11 @@ function TermoUso() {
     Estes Termos são regidos pela legislação brasileira. Qualquer disputa será resolvida no foro da comarca de
     <strong> Bauru/SP</strong>.
   </p>
-</div>
+  </div>
+</>
 
-)  
+)
+  
 }
 
 export default TermoUso;
