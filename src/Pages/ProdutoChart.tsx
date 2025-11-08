@@ -141,7 +141,7 @@ const ProdutoChart: React.FC<ProdutoChartProps> = ({ nomeProduto }) => {
                       width: 10,
                       height: 10,
                       borderRadius: 999,
-                      background: "#4f46e5",
+                      background: "hsl(142 71% 45%)",
                       marginRight: 8,
                       flex: "0 0 10px",
                     }}
@@ -156,7 +156,7 @@ const ProdutoChart: React.FC<ProdutoChartProps> = ({ nomeProduto }) => {
                         style={{
                           width: `${barWidth}%`,
                           height: "100%",
-                          background: "linear-gradient(90deg,#c7b3ff,#4f46e5)",
+                          background: "linear-gradient(90deg, hsl(142 71% 85%), hsl(142 71% 45%))",
                           borderRadius: 4,
                         }}
                       />
@@ -174,8 +174,8 @@ const ProdutoChart: React.FC<ProdutoChartProps> = ({ nomeProduto }) => {
           <AreaChart data={data} margin={{ top: 10, right: 10, left: 0, bottom: 0 }}>
             <defs>
               <linearGradient id="colorPreco" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%" stopColor="#4f46e5" stopOpacity={0.3} />
-                <stop offset="95%" stopColor="#4f46e5" stopOpacity={0} />
+                <stop offset="5%" stopColor="hsl(142 71% 45%)" stopOpacity={0.3} />
+                <stop offset="95%" stopColor="hsl(142 71% 45%)" stopOpacity={0} />
               </linearGradient>
             </defs>
 
@@ -214,7 +214,7 @@ const ProdutoChart: React.FC<ProdutoChartProps> = ({ nomeProduto }) => {
             <Area
               type="monotone"
               dataKey="price"
-              stroke="#4f46e5"
+              stroke="hsl(142 71% 45%)"
               fillOpacity={1}
               fill="url(#colorPreco)"
               strokeWidth={2}

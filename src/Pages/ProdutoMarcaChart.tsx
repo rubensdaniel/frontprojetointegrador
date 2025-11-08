@@ -51,7 +51,7 @@ const ProdutoMarcaChart: React.FC<ProdutoMarcaChartProps> = ({ nomeProduto, marc
             <XAxis dataKey="mercado" />
             <YAxis />
             <Tooltip formatter={(val) => `R$ ${Number(val).toFixed(2)}`} />
-            <Bar dataKey="preco" fill="#8884d8">
+            <Bar dataKey="preco" fill="hsl(142 71% 45%)">
               <LabelList dataKey="preco" position="top" formatter={(val) => `R$ ${Number(val).toFixed(2)}`} />
             </Bar>
           </BarChart>
