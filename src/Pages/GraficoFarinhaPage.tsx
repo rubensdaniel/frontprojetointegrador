@@ -23,9 +23,6 @@ export default function GraficoFarinhaPage() {
   );
 }
 
-// ---------------------------
-// Componente interno do card
-// ---------------------------
 function CardFarinha() {
   return (
     <CardBase
