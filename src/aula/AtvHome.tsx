@@ -15,7 +15,7 @@ function AtvHome () {
         setLoad(true);
        
         try {
-            let response = await fetch("https://fakestoreapi.com/products");            
+            let response = await fetch("http://localhost:3000/produtos/price-comparison/ARROZ%20PATEKO?peso=5kg");            
             let json = await response.json(); 
             const dataArray = Array.isArray(json) ? json: [json]
             setProdutos(dataArray);       

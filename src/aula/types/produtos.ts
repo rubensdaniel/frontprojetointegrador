@@ -5,3 +5,6 @@ export type Produto = {
   description: string;
   image: string;
 };
+
+
+
