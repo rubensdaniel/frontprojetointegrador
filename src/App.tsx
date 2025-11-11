@@ -34,13 +34,32 @@ import NotFound from './Pages/NotFound';
 import ProdutoMarcaChart from "./Pages/ProdutoMarcaChart";
 
 
+import GraficoArrozPage from "./Pages/GraficoArrozPage";
+import GraficoMacarraoPage from "./Pages/GraficoMacarraoPage";
+import GraficoFarinhaPage from "./Pages/GraficoFarinhaPage";
+import GraficoFeijaoPage from "./Pages/GraficoFeijaoPage";
+//import GraficoArrozPage from "./Pages/GraficoFeijaoPage";
+//import GraficoArrozPage from "./Pages/GraficoFarinhaPage";
+
+
+
+//      <Route path="/grafico/arroz" element={<ProdutoChart nomeProduto="Arroz" />}/>
+//      <Route path="/grafico/feijao" element={<ProdutoChart nomeProduto="Feijão" />}/>
+//      <Route path="/grafico/farinhadetrigo" element={<ProdutoChart nomeProduto="Farinha de trigo" />}/>
+//      <Route path="/grafico/macarrao" element={<ProdutoChart nomeProduto="macarrão" />}/>
 
 
 function App() {
 
   return (
     <Routes>
-      
+      <Route path="/grafico/arroz" element={<GraficoArrozPage />} />     
+      <Route path="/grafico/macarrao" element={<GraficoMacarraoPage />} />     
+      <Route path="/grafico/farinha" element={<GraficoFarinhaPage />} />     
+      <Route path="/grafico/feijao" element={<GraficoFeijaoPage />} />     
+
+
+
       <Route path='/' element={<Home />}/>
       <Route path='/login' element={<Login />}/>
       <Route path='/cadastromercado' element={<CadastroMercado />}/>
@@ -56,10 +75,7 @@ function App() {
       <Route path='/termouso' element={<TermoUso />}></Route>
       <Route path='/cookies' element={<Cookies />}/>
       
-      <Route path="/grafico/arroz" element={<ProdutoChart nomeProduto="Arroz" />}/>
-      <Route path="/grafico/feijao" element={<ProdutoChart nomeProduto="Feijão" />}/>
-      <Route path="/grafico/farinhadetrigo" element={<ProdutoChart nomeProduto="Farinha de trigo" />}/>
-      <Route path="/grafico/macarrao" element={<ProdutoChart nomeProduto="macarrão" />}/>
+
       <Route path="*" element={<NotFound />} />
 
       <Route path='/condicional' element={<Condicional />}></Route>
@@ -75,3 +91,4 @@ function App() {
 }
 
 export default App
+
