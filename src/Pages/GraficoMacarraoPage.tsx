@@ -1,7 +1,4 @@
 
-
-
-
 import ProdutoChart from "./ProdutoChart";
 import CardBase from "./CardBase";
 

@@ -1,13 +1,9 @@
-
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "../Style/HomeCard1.css";
 
 interface ProdutoRepetido {
-  //alterado
-  
   nomeOrdenado: string;
-  
   exemplo: string;
   marca: string;
   count: number;
@@ -16,21 +12,25 @@ interface ProdutoRepetido {
 interface PriceEntry {
   mercado: string;
   preco: number;
-  
+  url: string;
+  imagem: string;
+  nomeLimpo: string;
 }
 
-interface ProdutoFinal {  
-  nome: string;
+interface ProdutoFinal {
+  nome: string; // nomeOrdenado (para busca e rota)
+  nomeExibicao: string; // nomeLimpo (para exibição)
   categoria: string;
   emoji: string;
   prices: PriceEntry[];
   menor: number;
   economia: number;
   economiaValor: number;
+  imagem?: string;
+  url?: string;
 }
 
 interface CardBaseProps {
-  
   titulo: string; // Ex: "Arroz"
   emojiBase: string; // Ex: "🍚"
   marca: string; // Ex: "arroz"
@@ -55,7 +55,7 @@ function CardBase({ titulo, emojiBase, marca, peso }: CardBaseProps) {
 
         // 1️⃣ Buscar produtos mais repetidos da marca
         const res = await fetch(
-          `http://localhost:3000/produtos/mais-repetidos?limit=20&peso=${peso}&marca=${marca}`
+          `http://localhost:3000/produtos/mais-repetidos?limit=15&peso=${peso}&marca=${marca}`
         );
         const repetidos: ProdutoRepetido[] = await res.json();
 
@@ -71,12 +71,18 @@ function CardBase({ titulo, emojiBase, marca, peso }: CardBaseProps) {
           const pricesData = await priceRes.json();
           if (!pricesData || pricesData.length === 0) continue;
 
-
+          // 👇 Pega o nomeLimpo, imagem e URL do primeiro registro retornado
+          const primeiro = pricesData[0];
+          const nomeExibicao = primeiro?.nomeLimpo || item.nomeOrdenado;
+          const imagem = primeiro?.imagem;
+          const url = primeiro?.url;
 
           const prices: PriceEntry[] = pricesData.map((p: any) => ({
-
             mercado: p.mercado,
             preco: Number(p.preco),
+            url: p.url,
+            imagem: p.imagem,
+            nomeLimpo: p.nomeLimpo,
           }));
 
           const menor = Math.min(...prices.map((p) => p.preco));
@@ -84,18 +90,17 @@ function CardBase({ titulo, emojiBase, marca, peso }: CardBaseProps) {
           const economia = ((maior - menor) / maior) * 100;
           const economiaValor = maior - menor;
 
-        //const nomeExibicao = pricesData[0]?.nomeLimpo || item.nomeOrdenado;
-
           listaFinal.push({
-            //nome: nomeExibicao, // agora exibe o nomeLimpo na tela
-            //nomeOriginal: item.nomeOrdenado, // mas mantém o nomeOrdenado pra rotas e buscas            
-            nome: item.nomeOrdenado,
+            nome: item.nomeOrdenado, // usado na rota e fetch
+            nomeExibicao, // mostrado no card
             categoria: titulo,
             emoji: emojiBase,
             prices,
             menor,
             economia,
             economiaValor,
+            imagem,
+            url,
           });
         }
 
@@ -124,7 +129,9 @@ function CardBase({ titulo, emojiBase, marca, peso }: CardBaseProps) {
   return (
     <section className="product-section">
       <div className="container">
-        <h2>{titulo} em Destaque {emojiBase}</h2>
+        <h2>
+          {titulo} em Destaque {emojiBase}
+        </h2>
         <p className="subtitle">Compare preços e veja onde está mais barato</p>
 
         <div className="product-grid">
@@ -135,11 +142,18 @@ function CardBase({ titulo, emojiBase, marca, peso }: CardBaseProps) {
               className="produto-card-link"
             >
               <div className="product-card">
-                <div className="product-image">{produto.emoji}</div>
+                {/* imagem do produto */}
+                {produto.imagem && (
+                  <img
+                    src={produto.imagem}
+                    alt={produto.nomeExibicao}
+                    className="product-photo"
+                  />
+                )}
 
                 <div className="product-info">
                   <span className="category">{produto.categoria}</span>
-                  <h3>{produto.nome}</h3>
+                  <h3>{produto.nomeExibicao}</h3>
 
                   <div className="price-list">
                     {produto.prices.map((p, idx) => (
@@ -162,6 +176,17 @@ function CardBase({ titulo, emojiBase, marca, peso }: CardBaseProps) {
                     {produto.economia.toFixed(0)}% (R${" "}
                     {produto.economiaValor.toFixed(2).replace(".", ",")})
                   </div>
+
+                  {produto.url && (
+                    <a
+                      href={produto.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="product-link"
+                    >
+                      Ver no site do mercado
+                    </a>
+                  )}
                 </div>
               </div>
             </Link>
