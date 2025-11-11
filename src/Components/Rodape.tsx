@@ -10,7 +10,7 @@ function Rodape (){
           <h4>O Projeto</h4>
           <ul>
             <li><Link to="/sobre">Quem somos</Link></li>
-            <li><Link to="/parceiros">Nossos parceiros</Link></li>
+
           </ul>
         </div>
 
@@ -31,13 +31,6 @@ function Rodape (){
           </ul>
         </div>
 
-        <div className="footer-coluna">
-          <h4>Explore</h4>
-          <ul>
-            <li><Link to="/parceria">Seja um parceiro</Link></li>
-            <li><Link to="/mapa">Mapa do site</Link></li>
-          </ul>
-        </div>
 
         <div >
 
