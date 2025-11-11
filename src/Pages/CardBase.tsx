@@ -55,7 +55,7 @@ function CardBase({ titulo, emojiBase, marca, peso }: CardBaseProps) {
 
         // 1️⃣ Buscar produtos mais repetidos da marca
         const res = await fetch(
-          `http://localhost:3000/produtos/mais-repetidos?limit=15&peso=${peso}&marca=${marca}`
+          `http://localhost:3000/produtos/mais-repetidos?limit=20&peso=${peso}&marca=${marca}`
         );
         const repetidos: ProdutoRepetido[] = await res.json();
 

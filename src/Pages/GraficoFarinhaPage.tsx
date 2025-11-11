@@ -32,7 +32,7 @@ function CardFarinha() {
       titulo="Farinha"
       emojiBase="🍚"
       marca="farinha"
-      peso="5kg"
+      peso="1kg"
     />
   );
 }
