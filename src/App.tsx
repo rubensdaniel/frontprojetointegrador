@@ -41,6 +41,10 @@ import GraficoFeijaoPage from "./Pages/GraficoFeijaoPage";
 //import GraficoArrozPage from "./Pages/GraficoFeijaoPage";
 //import GraficoArrozPage from "./Pages/GraficoFarinhaPage";
 
+import PrimeiroAcesso from './Pages/Primeiro-acesso'
+import ConclusaoCadastro from './Pages/Conclusao-cadastro'
+import Privacidade from './Pages/Privacidade'
+
 
 
 //      <Route path="/grafico/arroz" element={<ProdutoChart nomeProduto="Arroz" />}/>
@@ -72,8 +76,11 @@ function App() {
       <Route path='/atualizacaoprecoadm' element={<AtualizacaoPrecoAdm />}/>
       <Route path='/sugestaoproduto' element={<SugestaoProduto />}/>
       <Route path='/cadastroadm' element={<CadastroAdm />}/>
-      <Route path='/termouso' element={<TermoUso />}></Route>
+      <Route path='/termouso' element={<TermoUso />}/>
       <Route path='/cookies' element={<Cookies />}/>
+      <Route path='/primeiroacesso' element={<PrimeiroAcesso />}/>
+      <Route path='/finalizacao' element={<ConclusaoCadastro />}/>
+      <Route path='/privacidade' element={<Privacidade />}/>
       
 
       <Route path="*" element={<NotFound />} />
