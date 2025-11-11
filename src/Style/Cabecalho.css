@@ -2,7 +2,7 @@
 
 /* Cores base do design system */
 :root {
-  --background: hsl(0 0% 100%);
+  --background: hsl(0, 0%, 100%);
   --foreground: hsl(142 71% 20%);
 
   --primary: hsl(142 71% 45%);
@@ -14,7 +14,7 @@
   --gradient-accent: linear-gradient(135deg, hsl(25 95% 53%) 0%, hsl(38 92% 50%) 100%);
 
   --muted-foreground: hsl(142 15% 45%);
-  --gradient-hero: linear-gradient(180deg, hsl(142 60% 97%) 0%, hsl(0 0% 100%) 100%);
+  --gradient-hero: linear-gradient(180deg, hsl(0, 0%, 100%) 0%, hsl(0, 0%, 100%) 100%);
 }
 
 .hero {
@@ -68,7 +68,7 @@
 
 .buttons button.primary {
   background: var(--gradient-primary);
-  color: hsl(0 0% 100%);
+  color: hsl(0, 0%, 100%);
 }
 
 .buttons button.primary:hover {
@@ -98,4 +98,11 @@
   .buttons {
     flex-direction: row;
   }
+}
+
+.logo-image {
+    max-height: 500px; 
+    width: auto; 
+    display: block; 
+    margin: 0 auto;
 }
