@@ -23,9 +23,6 @@ export default function GraficoArrozPage() {
   );
 }
 
-// ---------------------------
-// Componente interno do card
-// ---------------------------
 function CardArroz() {
   return (
     <CardBase

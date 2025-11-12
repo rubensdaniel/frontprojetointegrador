@@ -26,9 +26,6 @@ export default function GraficoFeijaoPage() {
   );
 }
 
-// ---------------------------
-// Componente interno do card
-// ---------------------------
 function CardFeijao() {
   return (
     <CardBase

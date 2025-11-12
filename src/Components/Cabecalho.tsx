@@ -44,9 +44,17 @@ import '../Style/Cabecalho.css';
    return (
 
   <>
-    <section className="hero">
+   <section className="hero">
       <div className="hero-container">
-        <h1><Link to="/" className="logo-link">Comparaki</Link></h1>
+        <h1>
+          <Link to="/" className="logo-link">
+            <img 
+              src="Projeto Criador de logotipo.jpeg" 
+              alt="Logo Comparaki" 
+              className="logo-image" 
+            />
+          </Link>
+        </h1>
         <p>Encontre os menores preços em mercados</p>
         <p>Compare produtos e economize nas suas compras</p>
         <div className="mt-8 flex justify-center gap-6 text-sm text-muted-foreground">
@@ -55,7 +63,7 @@ import '../Style/Cabecalho.css';
           <span>💰 Economia garantida</span>
         </div>
       </div>
-    </section>
+    </section>''
 </>
    );
  };
