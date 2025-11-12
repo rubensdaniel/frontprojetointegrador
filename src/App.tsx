@@ -31,8 +31,9 @@ import RequisicaoPost from './aula/requisicoesPost'
 //import loginLogar from './contexts/login'
 //import { UsuarioLogadoContext } from './contexts/contextAuth'
 import NotFound from './Pages/NotFound';
-import ProdutoMarcaChart from "./Pages/ProdutoMarcaChart";
-
+//--------------
+//import ProdutoMarcaChart from "./Pages/ProdutoMarcaChart";
+//--------------
 
 import GraficoArrozPage from "./Pages/GraficoArrozPage";
 import GraficoMacarraoPage from "./Pages/GraficoMacarraoPage";
