@@ -29,7 +29,9 @@ const ProdutoChart: React.FC<ProdutoChartProps> = ({ nomeProduto }) => {
       .map((p) => ({
         mercado: p.mercado,
         preco: Number(String(p.preco).replace(",", ".")),
-      }));
+      }))
+      // ordenar por preco ascendente para que o menor venha primeiro
+      .sort((a, b) => a.preco - b.preco);
 
     return filtered.map((item, i) => {
       const price = item.preco + Math.sin(i * 0.5) * 0.3; // leve variação visual
