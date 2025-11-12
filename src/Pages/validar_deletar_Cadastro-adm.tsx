@@ -1,12 +1,12 @@
 
-function CadastroAdm(){
-    return(
-        <div>
-            Cadastro de ADM
-        </div>
-    )
-}
+// function CadastroAdm(){
+//     return(
+//         <div>
+//             Cadastro de ADM
+//         </div>
+//     )
+// }
 
 
 
-export default CadastroAdm;
+// export default CadastroAdm;

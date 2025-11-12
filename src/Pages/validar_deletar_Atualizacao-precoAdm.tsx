@@ -1,12 +1,12 @@
 
-function AtualizacaoPrecoAdm(){
-    return(
-        <div>
-            Atualização de preço dos ADM
-        </div>
-    )
-}
+// function AtualizacaoPrecoAdm(){
+//     return(
+//         <div>
+//             Atualização de preço dos ADM
+//         </div>
+//     )
+// }
 
 
 
-export default AtualizacaoPrecoAdm;
+// export default AtualizacaoPrecoAdm;
