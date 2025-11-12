@@ -8,11 +8,15 @@ import Login from './Pages/Login'
 import Sobre from './Pages/Sobre'
 import CadastroUsuario from './Pages/Cadastro-usuario'
 import HistoricoProduto from './Pages/Historico-produto'
-import AtualizacaoPreco from './Pages/Atualizacao-preco'
-import AtualizacaoPrecoAdm from './Pages/Atualizacao-precoAdm'
+import AtualizacaoPreco from './Pages/validar_deletar_Atualizacao-preco'
+import AtualizacaoPrecoAdm from './Pages/validar_deletar_Atualizacao-precoAdm'
 import SugestaoProduto from './Pages/Sugestao-produtos'
-import CadastroAdm from './Pages/Cadastro-adm'
+<<<<<<< HEAD
+import CadastroAdm from './Pages/validar_deletar_Cadastro-adm'
 import Cookies from './Pages/Cookies'
+=======
+import CadastroAdm from './Pages/Cadastro-adm'
+>>>>>>> 18d790cabe994808ccb09519c60d8c651634a95c
 
 import TermoUso from './Pages/Termo-de-uso'
 
@@ -31,8 +35,9 @@ import RequisicaoPost from './aula/requisicoesPost'
 //import loginLogar from './contexts/login'
 //import { UsuarioLogadoContext } from './contexts/contextAuth'
 import NotFound from './Pages/NotFound';
-import ProdutoMarcaChart from "./Pages/ProdutoMarcaChart";
-
+//--------------
+//import ProdutoMarcaChart from "./Pages/ProdutoMarcaChart";
+//--------------
 
 import GraficoArrozPage from "./Pages/GraficoArrozPage";
 import GraficoMacarraoPage from "./Pages/GraficoMacarraoPage";
@@ -77,7 +82,6 @@ function App() {
       <Route path='/sugestaoproduto' element={<SugestaoProduto />}/>
       <Route path='/cadastroadm' element={<CadastroAdm />}/>
       <Route path='/termouso' element={<TermoUso />}/>
-      <Route path='/cookies' element={<Cookies />}/>
       <Route path='/primeiroacesso' element={<PrimeiroAcesso />}/>
       <Route path='/finalizacao' element={<ConclusaoCadastro />}/>
       <Route path='/privacidade' element={<Privacidade />}/>

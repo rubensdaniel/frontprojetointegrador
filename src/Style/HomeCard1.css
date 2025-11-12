@@ -100,9 +100,7 @@ h2 {
   padding: 1.5rem 1.2rem;
   text-align: left;
   border-top: 1px solid #e2e8f0;
-  display: flex;
-  flex-direction: column;
-  height: calc(420px - 180px); /* card total 420px minus image height */
+
 }
 
 .category {
@@ -124,19 +122,11 @@ h2 {
 
 /* === LISTA DE PREÇOS === */
 .price-list {
+  
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
   margin-bottom: 1rem;
-  /* limitar a mostrar ~3 linhas e permitir scroll se houver mais */
-  /* altura aproximada para 3 itens; ajustável conforme o design */
-  max-height: 160px;
-  /* por padrão, permitir rolagem mas esconder a barra; mostrar ao hover */
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
-  padding-right: 6px; /* espaço para a scrollbar */
-  /* Firefox */
-  scrollbar-width: none; /* esconder scrollbar no Firefox por padrão */
 }
 
 .price-row {

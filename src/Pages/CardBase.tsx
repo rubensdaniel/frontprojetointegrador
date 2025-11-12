@@ -21,7 +21,7 @@ interface ProdutoFinal {
   nome: string; // nomeOrdenado (para busca e rota)
   nomeExibicao: string; // nomeLimpo (para exibição)
   categoria: string;
-  emoji: string;
+//  emoji: string;
   prices: PriceEntry[];
   menor: number;
   economia: number;
@@ -32,12 +32,12 @@ interface ProdutoFinal {
 
 interface CardBaseProps {
   titulo: string; // Ex: "Arroz"
-  emojiBase: string; // Ex: "🍚"
+  //emojiBase: string; // Ex: "🍚"
   marca: string; // Ex: "arroz"
   peso: string; // Ex: "5kg"
 }
 
-function CardBase({ titulo, emojiBase, marca, peso }: CardBaseProps) {
+function CardBase({ titulo, marca, peso }: CardBaseProps) {
   const [produtos, setProdutos] = useState<ProdutoFinal[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -94,7 +94,7 @@ function CardBase({ titulo, emojiBase, marca, peso }: CardBaseProps) {
             nome: item.nomeOrdenado, // usado na rota e fetch
             nomeExibicao, // mostrado no card
             categoria: titulo,
-            emoji: emojiBase,
+            //emoji: emojiBase,
             prices,
             menor,
             economia,
@@ -113,7 +113,7 @@ function CardBase({ titulo, emojiBase, marca, peso }: CardBaseProps) {
     }
 
     carregarProdutos();
-  }, [marca, peso, titulo, emojiBase]);
+  }, [marca, peso, titulo]);
 
   if (loading) {
     return (
@@ -130,7 +130,7 @@ function CardBase({ titulo, emojiBase, marca, peso }: CardBaseProps) {
     <section className="product-section">
       <div className="container">
         <h2>
-          {titulo} em Destaque {emojiBase}
+          {titulo} em Destaque 
         </h2>
         <p className="subtitle">Compare preços e veja onde está mais barato</p>
 
@@ -188,7 +188,7 @@ function CardBase({ titulo, emojiBase, marca, peso }: CardBaseProps) {
                       rel="noopener noreferrer"
                       className="product-link"
                     >
-                      Ver no site do mercado
+
                     </a>
                   )}
                 </div>

@@ -1,8 +1,6 @@
-
-
-
 import ProdutoChart from "./ProdutoChart";
 import CardBase from "./CardBase";
+import Header from '../Components/Cabecalho';
 
 export default function GraficoFeijaoPage() {
   return (
@@ -15,8 +13,9 @@ export default function GraficoFeijaoPage() {
         padding: "40px 20px",
       }}
     >
+        <Header />
       {/* Gráfico do produto */}
-      <ProdutoChart nomeProduto="Feijão" />
+{/*      <ProdutoChart nomeProduto="Feijão" />  */}
 
       {/* Card do produto */}
       <div style={{ width: "100%", maxWidth: "1200px" }}>
@@ -26,14 +25,10 @@ export default function GraficoFeijaoPage() {
   );
 }
 
-// ---------------------------
-// Componente interno do card
-// ---------------------------
 function CardFeijao() {
   return (
     <CardBase
       titulo="Feijão"
-      emojiBase="🍚"
       marca="Feijão"
       peso="1kg"
     />
