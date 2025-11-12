@@ -12,7 +12,6 @@ import AtualizacaoPreco from './Pages/Atualizacao-preco'
 import AtualizacaoPrecoAdm from './Pages/Atualizacao-precoAdm'
 import SugestaoProduto from './Pages/Sugestao-produtos'
 import CadastroAdm from './Pages/Cadastro-adm'
-import Cookies from './Pages/Cookies'
 
 import TermoUso from './Pages/Termo-de-uso'
 
@@ -77,7 +76,6 @@ function App() {
       <Route path='/sugestaoproduto' element={<SugestaoProduto />}/>
       <Route path='/cadastroadm' element={<CadastroAdm />}/>
       <Route path='/termouso' element={<TermoUso />}/>
-      <Route path='/cookies' element={<Cookies />}/>
       <Route path='/primeiroacesso' element={<PrimeiroAcesso />}/>
       <Route path='/finalizacao' element={<ConclusaoCadastro />}/>
       <Route path='/privacidade' element={<Privacidade />}/>
