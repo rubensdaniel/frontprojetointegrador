@@ -40,19 +40,19 @@ function PrimeiroAcesso() {
               <h2>Como funciona</h2>
               <div className="steps">
                 <div className="step-card">
-                  <span className="step-icon">🔍</span>
+                  <span className="step-icon"></span>
                   <h3>1. Pesquise</h3>
                   <p>Busque produtos e veja onde estão mais baratos.</p>
                 </div>
 
                 <div className="step-card">
-                  <span className="step-icon">⚖️</span>
+                  <span className="step-icon"></span>
                   <h3>2. Compare</h3>
                   <p>Compare preços entre mercados e descubra as melhores ofertas.</p>
                 </div>
 
                 <div className="step-card">
-                  <span className="step-icon">💰</span>
+                  <span className="step-icon"></span>
                   <h3>3. Economize</h3>
                   <p>Compre de forma inteligente e economize no dia a dia.</p>
                 </div>
