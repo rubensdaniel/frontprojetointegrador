@@ -10,17 +10,17 @@ function Rodape (){
           <h4>O Projeto</h4>
           <ul>
             <li><Link to="/sobre">Quem somos</Link></li>
-
+            <li><Link to="/primeiroacesso">Primeiro acesso</Link></li>
           </ul>
         </div>
 
-        <div className="footer-coluna">
+        {/* <div className="footer-coluna">
           <h4>Como usar</h4>
           <ul>
-            <li><Link to="/primeiroacesso">Primeiro acesso</Link></li>
+
             <li><Link to="/finalizacao">Após a conclusão do cadastro</Link></li>
           </ul>
-        </div>
+        </div> */}
 
         <div className="footer-coluna">
           <h4>Nossas políticas</h4>

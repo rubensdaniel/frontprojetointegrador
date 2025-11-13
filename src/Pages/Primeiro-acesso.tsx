@@ -1,60 +1,83 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import Header from "../Components/Cabecalho";
+import "../Style/primeiroAcesso.css";
 
-const PrimeiroAcesso: React.FC = () => {
-  const [produto, setProduto] = useState("");
+function PrimeiroAcesso() {
+  const [step, setStep] = useState(1);
+  const navigate = useNavigate(); // hook para navegação
 
-  const handleSearch = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (produto.trim() === "") return alert("Digite o nome de um produto!");
-    alert(`Buscando preços de: ${produto}`);
-    // Aqui você pode redirecionar para a página de resultados
-    // Exemplo: navigate(`/buscar?produto=${produto}`)
+  const nextStep = () => {
+    if (step < 3) setStep(step + 1);
+  };
+
+  const startApp = () => {
+    // redireciona para a rota principal (Home)
+    navigate("/");
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-green-50 to-white flex flex-col items-center justify-center px-4">
-      <div className="max-w-md bg-white shadow-xl rounded-2xl p-8 text-center border border-green-100">
-        <img
-          src="/logo.png"
-          alt="Comparaki"
-          className="w-28 mx-auto mb-4"
-        />
-        <h1 className="text-3xl font-bold text-green-700 mb-2">
-          Bem-vindo ao Comparaki!
-        </h1>
-        <p className="text-gray-600 mb-6">
-          Compare produtos e descubra onde comprar mais barato 🏷️
-        </p>
+    <>
+      <Header />
 
-        <form onSubmit={handleSearch} className="flex flex-col gap-3">
-          <input
-            type="text"
-            placeholder="Digite o nome de um produto (ex: arroz, feijão...)"
-            value={produto}
-            onChange={(e) => setProduto(e.target.value)}
-            className="border border-green-300 rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-green-500"
-          />
+      <main className="primeiro-acesso">
+        <div className="container">
+          {step === 1 && (
+            <section className="welcome-section">
+              <h1>Bem-vindo ao Comparaki</h1>
+              <p className="subtitle">
+                Encontre os melhores preços de alimentos nos mercados da sua cidade.
+              </p>
+              <div className="illustration">🛒</div>
+              <button className="btn-primary" onClick={nextStep}>
+                Continuar
+              </button>
+            </section>
+          )}
 
-          <button
-            type="submit"
-            className="bg-green-600 text-white rounded-xl py-3 hover:bg-green-700 transition"
-          >
-            Comparar preços
-          </button>
-        </form>
+          {step === 2 && (
+            <section className="tutorial-section">
+              <h2>Como funciona</h2>
+              <div className="steps">
+                <div className="step-card">
+                  <span className="step-icon">🔍</span>
+                  <h3>1. Pesquise</h3>
+                  <p>Busque produtos e veja onde estão mais baratos.</p>
+                </div>
 
-        <div className="mt-6 text-sm text-gray-500">
-          É seu primeiro acesso?
-          <a
-            href="/cadastro"
-            className="text-green-600 font-medium hover:underline ml-1"
-          >
-            Crie sua conta
-          </a>
+                <div className="step-card">
+                  <span className="step-icon">⚖️</span>
+                  <h3>2. Compare</h3>
+                  <p>Compare preços entre mercados e descubra as melhores ofertas.</p>
+                </div>
+
+                <div className="step-card">
+                  <span className="step-icon">💰</span>
+                  <h3>3. Economize</h3>
+                  <p>Compre de forma inteligente e economize no dia a dia.</p>
+                </div>
+              </div>
+              <button className="btn-primary" onClick={nextStep}>
+                Entendi
+              </button>
+            </section>
+          )}
+
+          {step === 3 && (
+            <section className="final-section">
+              <h2>Pronto para começar?</h2>
+              <p>Vamos te ajudar a fazer sua próxima compra com mais economia.</p>
+              <div className="illustration">🥦</div>
+              <button className="btn-primary" onClick={startApp}>
+                Começar Agora
+              </button>
+            </section>
+          )}
         </div>
-      </div>
-    </div>
+      </main>
+    </>
   );
-};
+}
 
 export default PrimeiroAcesso;
+
