@@ -64,19 +64,19 @@ function HomeCard1() {
                   <h3>{produto.nome}</h3>
 
                   <div className="price-list">
-                    {produto.prices.map((p, idx) => (
-                      <div
-                        key={idx}
-                        className={`price-row ${
-                          p.preco === produto.menor ? "best" : ""
-                        }`}
-                      >
-                        <span>{p.mercado}</span>
-                        <strong>
-                          R$ {p.preco.toFixed(2).replace(".", ",")}
-                        </strong>
-                      </div>
-                    ))}
+                    {produto.prices
+                      .slice()
+                      .sort((a, b) => a.preco - b.preco)
+                      .map((p, idx) => (
+                        <div
+                          key={idx}
+                          className={`price-row ${idx === 0 ? "best" : ""}`}>
+                          <span>{p.mercado}</span>
+                          <strong>
+                            R$ {p.preco.toFixed(2).replace(".", ",")}
+                          </strong>
+                        </div>
+                      ))}
                   </div>
 
                   <div className="discount">

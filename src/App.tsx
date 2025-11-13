@@ -11,12 +11,12 @@ import HistoricoProduto from './Pages/Historico-produto'
 import AtualizacaoPreco from './Pages/validar_deletar_Atualizacao-preco'
 import AtualizacaoPrecoAdm from './Pages/validar_deletar_Atualizacao-precoAdm'
 import SugestaoProduto from './Pages/Sugestao-produtos'
-<<<<<<< HEAD
-import CadastroAdm from './Pages/validar_deletar_Cadastro-adm'
-import Cookies from './Pages/Cookies'
-=======
-import CadastroAdm from './Pages/Cadastro-adm'
->>>>>>> 18d790cabe994808ccb09519c60d8c651634a95c
+//<<<<<<< HEAD
+// import CadastroAdm from './Pages/validar_deletar_Cadastro-adm'
+// import Cookies from './Pages/Cookies'
+// =======
+// import CadastroAdm from './Pages/Cadastro-adm'
+//>>>>>>> 18d790cabe994808ccb09519c60d8c651634a95c
 
 import TermoUso from './Pages/Termo-de-uso'
 
@@ -57,7 +57,7 @@ import Privacidade from './Pages/Privacidade'
 //      <Route path="/grafico/farinhadetrigo" element={<ProdutoChart nomeProduto="Farinha de trigo" />}/>
 //      <Route path="/grafico/macarrao" element={<ProdutoChart nomeProduto="macarrão" />}/>
 
-
+//<Route path='/cadastroadm' element={<CadastroAdm />}/>
 function App() {
 
   return (
@@ -80,7 +80,7 @@ function App() {
       <Route path='/atualizacaopreco' element={<AtualizacaoPreco />}/>
       <Route path='/atualizacaoprecoadm' element={<AtualizacaoPrecoAdm />}/>
       <Route path='/sugestaoproduto' element={<SugestaoProduto />}/>
-      <Route path='/cadastroadm' element={<CadastroAdm />}/>
+      
       <Route path='/termouso' element={<TermoUso />}/>
       <Route path='/primeiroacesso' element={<PrimeiroAcesso />}/>
       <Route path='/finalizacao' element={<ConclusaoCadastro />}/>
