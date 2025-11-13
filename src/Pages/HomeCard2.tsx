@@ -59,19 +59,19 @@ function HomeCard2() {
                   <h3>{marca.marca}</h3>
 
                   <div className="price-list">
-                    {marca.prices.map((p, idx) => (
-                      <div
-                        key={idx}
-                        className={`price-row ${
-                          p.preco === marca.menor ? "best" : ""
-                        }`}
-                      >
-                        <span>{p.mercado}</span>
-                        <strong>
-                          R$ {p.preco.toFixed(2).replace(".", ",")}
-                        </strong>
-                      </div>
-                    ))}
+                    {marca.prices
+                      .slice()
+                      .sort((a, b) => a.preco - b.preco)
+                      .map((p, idx) => (
+                        <div
+                          key={idx}
+                          className={`price-row ${idx === 0 ? "best" : ""}`}>
+                          <span>{p.mercado}</span>
+                          <strong>
+                            R$ {p.preco.toFixed(2).replace(".", ",")}
+                          </strong>
+                        </div>
+                      ))}
                   </div>
 
                   <div className="discount">
