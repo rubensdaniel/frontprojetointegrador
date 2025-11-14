@@ -8,9 +8,9 @@ import Login from './Pages/Login'
 import Sobre from './Pages/Sobre'
 import CadastroUsuario from './Pages/Cadastro-usuario'
 import HistoricoProduto from './Pages/Historico-produto'
-import AtualizacaoPreco from './Pages/validar_deletar_Atualizacao-preco'
-import AtualizacaoPrecoAdm from './Pages/validar_deletar_Atualizacao-precoAdm'
-import SugestaoProduto from './Pages/Sugestao-produtos'
+// import AtualizacaoPreco from './Pages/validar_deletar_Atualizacao-preco'
+// import AtualizacaoPrecoAdm from './Pages/validar_deletar_Atualizacao-precoAdm'
+// import SugestaoProduto from './Pages/Sugestao-produtos'
 //<<<<<<< HEAD
 // import CadastroAdm from './Pages/validar_deletar_Cadastro-adm'
 // import Cookies from './Pages/Cookies'
@@ -57,6 +57,11 @@ import Privacidade from './Pages/Privacidade'
 //      <Route path="/grafico/farinhadetrigo" element={<ProdutoChart nomeProduto="Farinha de trigo" />}/>
 //      <Route path="/grafico/macarrao" element={<ProdutoChart nomeProduto="macarrão" />}/>
 
+      // <Route path='/atualizacaopreco' element={<AtualizacaoPreco />}/>
+      // <Route path='/atualizacaoprecoadm' element={<AtualizacaoPrecoAdm />}/>
+      // <Route path='/sugestaoproduto' element={<SugestaoProduto />}/>
+
+
 //<Route path='/cadastroadm' element={<CadastroAdm />}/>
 function App() {
 
@@ -77,9 +82,6 @@ function App() {
       <Route path='/sobre' element={<Sobre />}/>
       <Route path='/cadastrousuario' element={<CadastroUsuario />}/>
       <Route path='/hisotircoproduto' element={<HistoricoProduto />}/>
-      <Route path='/atualizacaopreco' element={<AtualizacaoPreco />}/>
-      <Route path='/atualizacaoprecoadm' element={<AtualizacaoPrecoAdm />}/>
-      <Route path='/sugestaoproduto' element={<SugestaoProduto />}/>
       
       <Route path='/termouso' element={<TermoUso />}/>
       <Route path='/primeiroacesso' element={<PrimeiroAcesso />}/>
