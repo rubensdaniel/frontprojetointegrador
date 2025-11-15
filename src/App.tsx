@@ -1,13 +1,13 @@
 
 import { Routes, Route} from 'react-router-dom'
 import Home from './Pages/Home'
-import CadastroMercado from './Pages/Cadastro-mercado'
-import CadastroProduto from './Pages/Cadastro-produto'
+import CadastroMercado from './Pages/validar_deletar_Cadastro-mercado'
+import CadastroProduto from './Pages/validar_deletar_Cadastro-produto'
 import Comparativos from './Pages/Comparativos'
 import Login from './Pages/Login'
 import Sobre from './Pages/Sobre'
 import CadastroUsuario from './Pages/Cadastro-usuario'
-import HistoricoProduto from './Pages/Historico-produto'
+import HistoricoProduto from './Pages/validar_deletar_Historico-produto'
 // import AtualizacaoPreco from './Pages/validar_deletar_Atualizacao-preco'
 // import AtualizacaoPrecoAdm from './Pages/validar_deletar_Atualizacao-precoAdm'
 // import SugestaoProduto from './Pages/Sugestao-produtos'
@@ -47,7 +47,7 @@ import GraficoFeijaoPage from "./Pages/GraficoFeijaoPage";
 //import GraficoArrozPage from "./Pages/GraficoFarinhaPage";
 
 import PrimeiroAcesso from './Pages/Primeiro-acesso'
-import ConclusaoCadastro from './Pages/Conclusao-cadastro'
+//import ConclusaoCadastro from './Pages/Conclusao-cadastro'
 import Privacidade from './Pages/Privacidade'
 
 
@@ -61,6 +61,8 @@ import Privacidade from './Pages/Privacidade'
       // <Route path='/atualizacaoprecoadm' element={<AtualizacaoPrecoAdm />}/>
       // <Route path='/sugestaoproduto' element={<SugestaoProduto />}/>
 
+
+//      <Route path='/finalizacao' element={<ConclusaoCadastro />}/>      
 
 //<Route path='/cadastroadm' element={<CadastroAdm />}/>
 function App() {
@@ -85,7 +87,7 @@ function App() {
       
       <Route path='/termouso' element={<TermoUso />}/>
       <Route path='/primeiroacesso' element={<PrimeiroAcesso />}/>
-      <Route path='/finalizacao' element={<ConclusaoCadastro />}/>
+
       <Route path='/privacidade' element={<Privacidade />}/>
       
 

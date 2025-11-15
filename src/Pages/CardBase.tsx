@@ -65,6 +65,7 @@ function CardBase({ titulo, marca, peso }: CardBaseProps) {
         for (const item of repetidos) {
           const priceRes = await fetch(
             `http://localhost:3000/produtos/comparacao-preco/${encodeURIComponent(
+            //`http://localhost:3000/produtos/price-comparison/${encodeURIComponent(              
               item.nomeOrdenado
             )}?peso=${peso}`
           );
