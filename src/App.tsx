@@ -6,7 +6,7 @@ import CadastroProduto from './Pages/validar_deletar_Cadastro-produto'
 import Comparativos from './Pages/Comparativos'
 import Login from './Pages/Login'
 import Sobre from './Pages/Sobre'
-import CadastroUsuario from './Pages/Cadastro-usuario'
+import CadastroUsuario from './Pages/validar_deletar_Cadastro-usuario'
 import HistoricoProduto from './Pages/validar_deletar_Historico-produto'
 // import AtualizacaoPreco from './Pages/validar_deletar_Atualizacao-preco'
 // import AtualizacaoPrecoAdm from './Pages/validar_deletar_Atualizacao-precoAdm'
@@ -22,7 +22,7 @@ import TermoUso from './Pages/Termo-de-uso'
 
 
 import ProdutoChart from './Pages/ProdutoChart'
-import Condicional from './Pages/condicional'
+import Condicional from './Pages/validar_deletar_condicional'
 
 
 
