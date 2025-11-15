@@ -6,7 +6,7 @@ import HomeCard1 from './HomeCard1';
 import HomeCard2 from './HomeCard2';
 //import '../Style/Home.css';
 import { produtosDados } from "../Dados/Produtos";
-//import Hero from './Hero';
+import Hero from './Hero';
 
 function Home() {
   // Pegamos os nomes únicos de produtos
