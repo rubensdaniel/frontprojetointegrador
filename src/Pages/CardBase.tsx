@@ -53,15 +53,15 @@ function CardBase({ titulo, marca, peso }: CardBaseProps) {
       try {
         setLoading(true);
 
-        // 1️⃣ Buscar produtos mais repetidos da marca
+        //  Buscar produtos mais repetidos da marca
         const res = await fetch(
-          `http://localhost:3000/produtos/mais-repetidos?limit=15&peso=${peso}&marca=${marca}`
+          `http://localhost:3000/produtos/mais-repetidos?limit=20&peso=${peso}&marca=${marca}`
         );
         const repetidos: ProdutoRepetido[] = await res.json();
 
         const listaFinal: ProdutoFinal[] = [];
 
-        // 2️⃣ Buscar comparações de preços
+        //  Buscar comparações de preços
         for (const item of repetidos) {
           const priceRes = await fetch(
             `http://localhost:3000/produtos/comparacao-preco/${encodeURIComponent(
