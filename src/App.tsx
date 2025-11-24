@@ -50,6 +50,16 @@ import PrimeiroAcesso from './Pages/Primeiro-acesso'
 //import ConclusaoCadastro from './Pages/Conclusao-cadastro'
 import Privacidade from './Pages/Privacidade'
 
+// admin
+import AdminLayout from './Admin/layout/AdminLayout'
+import ProtegidoAdmin from './Admin/protecao/ProtegidoAdmin'
+
+// usuario
+import PainelUsuario from './Usuario/pages/PainelUsuario'
+import ProtegidoUsuario from './Usuario/protecao/ProtegidoUsuario'
+
+
+
 
 
 //      <Route path="/grafico/arroz" element={<ProdutoChart nomeProduto="Arroz" />}/>
@@ -96,7 +106,27 @@ function App() {
       <Route path='/condicional' element={<Condicional />}></Route>
       <Route path='/requisicao' element={<Requisitos />}></Route>     
       <Route path='/avhome' element={<AvHome />}></Route>     
-      <Route path='/post' element={<RequisicaoPost />}></Route>     
+      <Route path='/post' element={<RequisicaoPost />}></Route> 
+
+ 
+
+       {/* admin */}
+      <Route path="/admin" element={
+          <ProtegidoAdmin>
+            <AdminLayout />
+          </ProtegidoAdmin>
+        }
+      />
+
+      {/* usuário comum */}
+      <Route
+        path="/usuario"
+        element={
+          <ProtegidoUsuario>
+            <PainelUsuario />
+          </ProtegidoUsuario>
+        }
+      />  
       
 
 
