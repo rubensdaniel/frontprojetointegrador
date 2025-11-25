@@ -1,3 +1,211 @@
+// import { useEffect, useState } from "react";
+// import { Link } from "react-router-dom";
+// import "../Style/HomeCard1.css";
+
+// interface ProdutoRepetido {
+//   nomeOrdenado: string;
+//   exemplo: string;
+//   marca: string;
+//   count: number;
+// }
+
+// interface PriceEntry {
+//   mercado: string;
+//   preco: number;
+//   url: string;
+//   imagem: string;
+//   nomeLimpo: string;
+// }
+
+// interface ProdutoFinal {
+//   nome: string; // nomeOrdenado (para busca e rota)
+//   nomeExibicao: string; // nomeLimpo (para exibição)
+//   categoria: string;
+// //  emoji: string;
+//   prices: PriceEntry[];
+//   menor: number;
+//   economia: number;
+//   economiaValor: number;
+//   imagem?: string;
+//   url?: string;
+// }
+
+// interface CardBaseProps {
+//   titulo: string; // Ex: "Arroz"
+//   //emojiBase: string; // Ex: "🍚"
+//   marca: string; // Ex: "arroz"
+//   peso: string; // Ex: "5kg"
+  
+// }
+
+// function CardBase({ titulo, marca, peso }: CardBaseProps) {
+//   const [produtos, setProdutos] = useState<ProdutoFinal[]>([]);
+//   const [loading, setLoading] = useState(true);
+
+//   const toSlug = (text: string) =>
+//     text
+//       .toLowerCase()
+//       .normalize("NFD")
+//       .replace(/[\u0300-\u036f]/g, "")
+//       .replace(/\s+/g, "");
+
+//   useEffect(() => {
+//     async function carregarProdutos() {
+//       try {
+//         setLoading(true);
+
+//         //  Buscar produtos mais repetidos da marca
+//         const res = await fetch(
+//           `http://localhost:3000/produtos/mais-repetidos?limit=20&peso=${peso}&marca=${marca}`
+//         );
+//         const repetidos: ProdutoRepetido[] = await res.json();
+
+//         const listaFinal: ProdutoFinal[] = [];
+
+//         //  Buscar comparações de preços
+//         for (const item of repetidos) {
+//           const priceRes = await fetch(
+//             `http://localhost:3000/produtos/comparacao-preco/${encodeURIComponent(
+//             //`http://localhost:3000/produtos/price-comparison/${encodeURIComponent(              
+//               item.nomeOrdenado
+//             )}?peso=${peso}`
+//           );
+//           const pricesData = await priceRes.json();
+//           if (!pricesData || pricesData.length === 0) continue;
+
+//           // 👇 Pega o nomeLimpo, imagem e URL do primeiro registro retornado
+//           const primeiro = pricesData[0];
+//           const nomeExibicao = primeiro?.nomeLimpo || item.nomeOrdenado;
+//           const imagem = primeiro?.imagem;
+//           const url = primeiro?.url;
+
+//           const prices: PriceEntry[] = pricesData.map((p: any) => ({
+//             mercado: p.mercado,
+//             preco: Number(p.preco),
+//             url: p.url,
+//             imagem: p.imagem,
+//             nomeLimpo: p.nomeLimpo,
+//           }));
+
+//           const menor = Math.min(...prices.map((p) => p.preco));
+//           const maior = Math.max(...prices.map((p) => p.preco));
+//           const economia = ((maior - menor) / maior) * 100;
+//           const economiaValor = maior - menor;
+
+//           listaFinal.push({
+//             nome: item.nomeOrdenado, // usado na rota e fetch
+//             nomeExibicao, // mostrado no card
+//             categoria: titulo,
+//             //emoji: emojiBase,
+//             prices,
+//             menor,
+//             economia,
+//             economiaValor,
+//             imagem,
+//             url,
+//           });
+//         }
+
+//         setProdutos(listaFinal);
+//       } catch (err) {
+//         console.error("Erro ao carregar produtos:", err);
+//       } finally {
+//         setLoading(false);
+//       }
+//     }
+
+//     carregarProdutos();
+//   }, [marca, peso, titulo]);
+
+//   if (loading) {
+//     return (
+//       <section className="product-section">
+//         <div className="container">
+//           <h2>Carregando {titulo}...</h2>
+//           <p className="subtitle">Aguarde enquanto buscamos os preços</p>
+//         </div>
+//       </section>
+//     );
+//   }
+
+//   return (
+//     <section className="product-section">
+//       <div className="container">
+//         <h2>
+//           {titulo} em Destaque 
+//         </h2>
+//         <p className="subtitle">Compare preços e veja onde está mais barato</p>
+
+//         <div className="product-grid">
+//           {produtos.map((produto, index) => (
+//             <Link
+//               to={`/grafico/${toSlug(produto.nome)}`}
+//               key={index}
+//               className="produto-card-link"
+//             >
+//               <div className="product-card">
+//                 {/* imagem do produto */}
+//                 {produto.imagem && (
+//                   <img
+//                     src={produto.imagem}
+//                     alt={produto.nomeExibicao}
+//                     className="product-photo"
+//                   />
+//                 )}
+
+//                 <div className="product-info">
+//                   <span className="category">{produto.categoria}</span>
+//                   <h3>{produto.nomeExibicao}</h3>
+
+//                   <div className="price-list">
+//                     {produto.prices
+//                       .slice()
+//                       .sort((a, b) => a.preco - b.preco)
+//                       .map((p, idx) => (
+//                         <div
+//                           key={idx}
+//                           className={`price-row ${
+//                             // mark the first (smallest) price as best
+//                             idx === 0 ? "best" : ""
+//                           }`}
+//                         >
+//                           <span>{p.mercado}</span>
+//                           <strong>
+//                             R$ {p.preco.toFixed(2).replace(".", ",")}
+//                           </strong>
+//                         </div>
+//                       ))}
+//                   </div>
+
+//                   <div className="discount">
+//                     ⬇️ Economize até{" "}
+//                     {produto.economia.toFixed(0)}% (R${" "}
+//                     {produto.economiaValor.toFixed(2).replace(".", ",")})
+//                   </div>
+
+//                   {produto.url && (
+//                     <a
+//                       href={produto.url}
+//                       target="_blank"
+//                       rel="noopener noreferrer"
+//                       className="product-link"
+//                     >
+
+//                     </a>
+//                   )}
+//                 </div>
+//               </div>
+//             </Link>
+//           ))}
+//         </div>
+//       </div>
+//     </section>
+//   );
+// }
+
+// export default CardBase;
+
+
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "../Style/HomeCard1.css";
@@ -18,10 +226,9 @@ interface PriceEntry {
 }
 
 interface ProdutoFinal {
-  nome: string; // nomeOrdenado (para busca e rota)
-  nomeExibicao: string; // nomeLimpo (para exibição)
+  nome: string;
+  nomeExibicao: string;
   categoria: string;
-//  emoji: string;
   prices: PriceEntry[];
   menor: number;
   economia: number;
@@ -31,29 +238,20 @@ interface ProdutoFinal {
 }
 
 interface CardBaseProps {
-  titulo: string; // Ex: "Arroz"
-  //emojiBase: string; // Ex: "🍚"
-  marca: string; // Ex: "arroz"
-  peso: string; // Ex: "5kg"
+  titulo: string;
+  marca: string;
+  peso: string;
 }
 
 function CardBase({ titulo, marca, peso }: CardBaseProps) {
   const [produtos, setProdutos] = useState<ProdutoFinal[]>([]);
   const [loading, setLoading] = useState(true);
 
-  const toSlug = (text: string) =>
-    text
-      .toLowerCase()
-      .normalize("NFD")
-      .replace(/[\u0300-\u036f]/g, "")
-      .replace(/\s+/g, "");
-
   useEffect(() => {
     async function carregarProdutos() {
       try {
         setLoading(true);
 
-        //  Buscar produtos mais repetidos da marca
         const res = await fetch(
           `http://localhost:3000/produtos/mais-repetidos?limit=20&peso=${peso}&marca=${marca}`
         );
@@ -61,18 +259,16 @@ function CardBase({ titulo, marca, peso }: CardBaseProps) {
 
         const listaFinal: ProdutoFinal[] = [];
 
-        //  Buscar comparações de preços
         for (const item of repetidos) {
           const priceRes = await fetch(
             `http://localhost:3000/produtos/comparacao-preco/${encodeURIComponent(
-            //`http://localhost:3000/produtos/price-comparison/${encodeURIComponent(              
               item.nomeOrdenado
             )}?peso=${peso}`
           );
+
           const pricesData = await priceRes.json();
           if (!pricesData || pricesData.length === 0) continue;
 
-          // 👇 Pega o nomeLimpo, imagem e URL do primeiro registro retornado
           const primeiro = pricesData[0];
           const nomeExibicao = primeiro?.nomeLimpo || item.nomeOrdenado;
           const imagem = primeiro?.imagem;
@@ -92,10 +288,9 @@ function CardBase({ titulo, marca, peso }: CardBaseProps) {
           const economiaValor = maior - menor;
 
           listaFinal.push({
-            nome: item.nomeOrdenado, // usado na rota e fetch
-            nomeExibicao, // mostrado no card
+            nome: item.nomeOrdenado,
+            nomeExibicao,
             categoria: titulo,
-            //emoji: emojiBase,
             prices,
             menor,
             economia,
@@ -130,20 +325,17 @@ function CardBase({ titulo, marca, peso }: CardBaseProps) {
   return (
     <section className="product-section">
       <div className="container">
-        <h2>
-          {titulo} em Destaque 
-        </h2>
+        <h2>{titulo} em Destaque</h2>
         <p className="subtitle">Compare preços e veja onde está mais barato</p>
 
         <div className="product-grid">
           {produtos.map((produto, index) => (
             <Link
-              to={`/grafico/${toSlug(produto.nome)}`}
+              to={`/grafico/${encodeURIComponent(produto.nome)}/${peso}`}
               key={index}
               className="produto-card-link"
             >
               <div className="product-card">
-                {/* imagem do produto */}
                 {produto.imagem && (
                   <img
                     src={produto.imagem}
@@ -163,10 +355,7 @@ function CardBase({ titulo, marca, peso }: CardBaseProps) {
                       .map((p, idx) => (
                         <div
                           key={idx}
-                          className={`price-row ${
-                            // mark the first (smallest) price as best
-                            idx === 0 ? "best" : ""
-                          }`}
+                          className={`price-row ${idx === 0 ? "best" : ""}`}
                         >
                           <span>{p.mercado}</span>
                           <strong>
@@ -177,8 +366,7 @@ function CardBase({ titulo, marca, peso }: CardBaseProps) {
                   </div>
 
                   <div className="discount">
-                    ⬇️ Economize até{" "}
-                    {produto.economia.toFixed(0)}% (R${" "}
+                    ⬇️ Economize até {produto.economia.toFixed(0)}% (R${" "}
                     {produto.economiaValor.toFixed(2).replace(".", ",")})
                   </div>
 
@@ -188,9 +376,7 @@ function CardBase({ titulo, marca, peso }: CardBaseProps) {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="product-link"
-                    >
-
-                    </a>
+                    ></a>
                   )}
                 </div>
               </div>

@@ -1,13 +1,13 @@
 
 import { Routes, Route} from 'react-router-dom'
 import Home from './Pages/Home'
-import CadastroMercado from './Pages/validar_deletar_Cadastro-mercado'
-import CadastroProduto from './Pages/validar_deletar_Cadastro-produto'
+//import CadastroMercado from './Pages/validar_deletar_Cadastro-mercado'
+//import CadastroProduto from './Pages/validar_deletar_Cadastro-produto'
 import Comparativos from './Pages/Comparativos'
 import Login from './Pages/Login'
 import Sobre from './Pages/Sobre'
-import CadastroUsuario from './Pages/validar_deletar_Cadastro-usuario'
-import HistoricoProduto from './Pages/validar_deletar_Historico-produto'
+// import CadastroUsuario from './Pages/validar_deletar_Cadastro-usuario'
+// import HistoricoProduto from './Pages/validar_deletar_Historico-produto'
 // import AtualizacaoPreco from './Pages/validar_deletar_Atualizacao-preco'
 // import AtualizacaoPrecoAdm from './Pages/validar_deletar_Atualizacao-precoAdm'
 // import SugestaoProduto from './Pages/Sugestao-produtos'
@@ -22,7 +22,7 @@ import TermoUso from './Pages/Termo-de-uso'
 
 
 import ProdutoChart from './Pages/ProdutoChart'
-import Condicional from './Pages/validar_deletar_condicional'
+// import Condicional from './Pages/validar_deletar_condicional'
 
 
 
@@ -45,6 +45,9 @@ import GraficoFarinhaPage from "./Pages/GraficoFarinhaPage";
 import GraficoFeijaoPage from "./Pages/GraficoFeijaoPage";
 //import GraficoArrozPage from "./Pages/GraficoFeijaoPage";
 //import GraficoArrozPage from "./Pages/GraficoFarinhaPage";
+import GraficoProdutoPage from "./Pages/GraficoProdutoPage";
+
+
 
 import PrimeiroAcesso from './Pages/Primeiro-acesso'
 //import ConclusaoCadastro from './Pages/Conclusao-cadastro'
@@ -75,6 +78,16 @@ import ProtegidoUsuario from './Usuario/protecao/ProtegidoUsuario'
 //      <Route path='/finalizacao' element={<ConclusaoCadastro />}/>      
 
 //<Route path='/cadastroadm' element={<CadastroAdm />}/>
+      //<Route path="/grafico/:nomeProduto" element={<GraficoProdutoPage />} />
+
+      // <Route path='/cadastromercado' element={<CadastroMercado />}/>
+      // <Route path='/cadastroproduto' element={<CadastroProduto />}/>
+
+      // <Route path='/cadastrousuario' element={<CadastroUsuario />}/>
+      // <Route path='/hisotircoproduto' element={<HistoricoProduto />}/>
+
+      //<Route path='/condicional' element={<Condicional />}></Route>      
+
 function App() {
 
   return (
@@ -83,17 +96,18 @@ function App() {
       <Route path="/grafico/macarrao" element={<GraficoMacarraoPage />} />     
       <Route path="/grafico/farinha" element={<GraficoFarinhaPage />} />     
       <Route path="/grafico/feijao" element={<GraficoFeijaoPage />} />     
+      <Route path="/grafico/:nomeProduto/:peso" element={<GraficoProdutoPage />} />
+
+
 
 
 
       <Route path='/' element={<Home />}/>
       <Route path='/login' element={<Login />}/>
-      <Route path='/cadastromercado' element={<CadastroMercado />}/>
-      <Route path='/cadastroproduto' element={<CadastroProduto />}/>
+
       <Route path='/comparativos' element={<Comparativos />}/>
       <Route path='/sobre' element={<Sobre />}/>
-      <Route path='/cadastrousuario' element={<CadastroUsuario />}/>
-      <Route path='/hisotircoproduto' element={<HistoricoProduto />}/>
+
       
       <Route path='/termouso' element={<TermoUso />}/>
       <Route path='/primeiroacesso' element={<PrimeiroAcesso />}/>
@@ -103,7 +117,7 @@ function App() {
 
       <Route path="*" element={<NotFound />} />
 
-      <Route path='/condicional' element={<Condicional />}></Route>
+
       <Route path='/requisicao' element={<Requisitos />}></Route>     
       <Route path='/avhome' element={<AvHome />}></Route>     
       <Route path='/post' element={<RequisicaoPost />}></Route> 

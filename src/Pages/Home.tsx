@@ -21,7 +21,7 @@ function Home() {
     <div className='home-container'>  
       <Header />
       <HomeCard1 />
-      <HomeCard2 />
+      
       <Rodape />
     </div>
   );
