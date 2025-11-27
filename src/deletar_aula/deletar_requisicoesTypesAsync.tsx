@@ -3,7 +3,7 @@ import Cabecalho from "../Components/Cabecalho";
 import { Link } from "react-router-dom";
 
 //Importo o meu tipo a ser utilizado.
-import type { Produto } from "./types/produtos";
+import type { Produto } from "./types/deletar_produtos";
 
 function RequisicoesTypesAsync () {
 

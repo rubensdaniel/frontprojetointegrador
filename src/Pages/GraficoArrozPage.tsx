@@ -1,4 +1,4 @@
-import ProdutoChart from "./ProdutoChart";
+//import ProdutoChart from "./ProdutoChart";
 import Header from '../Components/Cabecalho';
 import CardBase from "./CardBase";
 

@@ -1,61 +1,3 @@
-// import { useParams } from "react-router-dom";
-// import { useEffect, useState } from "react";
-// import {
-//   BarChart, Bar, XAxis, YAxis, CartesianGrid,
-//   Tooltip, Legend, ResponsiveContainer
-// } from "recharts";
-
-// export default function GraficoProdutoPage() {
-//   const { nomeProduto, peso } = useParams();
-//   const [data, setData] = useState<any[]>([]);
-//   const [loading, setLoading] = useState(true);
-
-//   useEffect(() => {
-//     if (!nomeProduto || !peso) return;
-
-//     const nomeDecodificado = decodeURIComponent(nomeProduto).toLowerCase();
-//     const pesoDecodificado = decodeURIComponent(peso);
-
-//     fetch(`http://localhost:3000/produtos/variacao-preco/${nomeDecodificado}/${pesoDecodificado}`)
-//       .then((res) => res.json())
-//       .then((json) => {
-//         // --> Converter formato API para formato do Recharts <--
-//         const entries = json.entries.map((item: any) => ({
-//           mercado: item.mercado,
-//           preco: item.preco,
-//         }));
-
-//         setData(entries);
-//         setLoading(false);
-//       })
-//       .catch((err) => {
-//         console.error("Erro API:", err);
-//         setLoading(false);
-//       });
-
-//   }, [nomeProduto, peso]);
-
-//   if (loading) return <p>Carregando...</p>;
-
-//   return (
-//     <div style={{ width: "100%", height: 400 }}>
-//       <h3>Variação de preço — {nomeProduto} ({peso})</h3>
-
-//       <ResponsiveContainer width="100%" height="100%">
-//         <BarChart data={data}>
-//           <CartesianGrid strokeDasharray="3 3" />
-//           <XAxis dataKey="mercado" />
-//           <YAxis />
-//           <Tooltip />
-//           <Legend />
-//           <Bar dataKey="preco" fill="#8884d8" />
-//         </BarChart>
-//       </ResponsiveContainer>
-//     </div>
-//   );
-// }
-
-
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import StockStyleChart from "./StockStyleChart";
@@ -63,13 +5,19 @@ import StockStyleChart from "./StockStyleChart";
 interface EntryAPI {
   mercado: string;
   preco: number;
+  coletadoEm: string;
+}
+
+interface ChartItem {
+  hora: string;
+  preco: number;
 }
 
 export default function GraficoProdutoPage() {
   const { nomeProduto, peso } = useParams();
-  const [data, setData] = useState<{ hora: string; preco: number }[]>([]);
+  const [data, setData] = useState<ChartItem[]>([]);
+  const [porMercado, setPorMercado] = useState<Record<string, ChartItem[]>>({});
 
-  // 🚀 Validar antes
   if (!nomeProduto || !peso) {
     return <p>Parâmetros inválidos na URL.</p>;
   }
@@ -81,19 +29,59 @@ export default function GraficoProdutoPage() {
     fetch(`http://localhost:3000/produtos/variacao-preco/${nome}/${pesoFix}`)
       .then((res) => res.json())
       .then((json) => {
-        const convertido = json.entries.map((item: EntryAPI) => ({
-          hora: item.mercado,
-          preco: item.preco,
-        }));
+        const convertido: ChartItem[] = json.entries.map((item: EntryAPI) => {
+          const dataFormatada = new Date(item.coletadoEm).toLocaleDateString("pt-BR");
+
+          return {
+            hora: `${item.mercado} - ${dataFormatada}`,
+            preco: Number(item.preco),
+          };
+        });
 
         setData(convertido);
+
+        // --- Criar gráficos por mercado ---
+        const grupos: Record<string, ChartItem[]> = {};
+
+        json.entries.forEach((item: EntryAPI) => {
+          const dataFormatada = new Date(item.coletadoEm).toLocaleDateString("pt-BR");
+
+          const point: ChartItem = {
+            hora: `${dataFormatada}`,
+            preco: Number(item.preco),
+          };
+
+          if (!grupos[item.mercado]) {
+            grupos[item.mercado] = [];
+          }
+          grupos[item.mercado].push(point);
+        });
+
+        setPorMercado(grupos);
       });
   }, [nomeProduto, peso]);
 
   return (
-    <div>
-      <h3>{nomeProduto} ({peso})</h3>
+    <div style={{ padding: "20px" }}>
+      <h2>
+        {nomeProduto} ({peso})
+      </h2>
+
+      {/* 🔵 Gráfico Geral */}
+      <h3>Gráfico Geral</h3>
       <StockStyleChart data={data} />
+
+      <hr />
+
+      {/* 🔴 Gráficos por Mercado */}
+      <h3>Gráficos por Mercado</h3>
+
+      {Object.keys(porMercado).map((mercado) => (
+        <div key={mercado} style={{ marginTop: "40px" }}>
+          <h4>{mercado}</h4>
+          <StockStyleChart data={porMercado[mercado]} />
+        </div>
+      ))}
     </div>
   );
 }

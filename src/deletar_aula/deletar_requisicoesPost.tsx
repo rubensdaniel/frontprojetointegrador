@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import type { ChangeEvent } from "react";
 import Cabecalho from "../Components/Cabecalho";
-import type { Usuarios } from "./usuarios";
-import { api} from "./api"
-import type { Produtos } from "./produtos";
+import type { Usuarios } from "./deletar_usuarios";
+import { api} from "./deletar_api"
+import type { Produtos } from "./deletar_produtos";
 
 
 

@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { UsuarioLogadoContext } from "../contexts/contextAuth";
-import type { Produto } from "./types/produtos";
+import type { Produto } from "./types/deletar_produtos";
 
 function AtvHome () {
 

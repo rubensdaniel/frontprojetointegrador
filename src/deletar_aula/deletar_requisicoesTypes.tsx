@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import Cabecalho from "../Components/Cabecalho";
 
-import RequisicoesTypesAsync from "./requisicoesTypesAsync";
+import RequisicoesTypesAsync from "./deletar_requisicoesTypesAsync";
 import { Link } from "react-router-dom";
 
 //Importo o meu tipo a ser utilizado.
-import type { Produto } from "./types/produtos";
+import type { Produto } from "./types/deletar_produtos";
 
 function RequisicoesTypes () {
 
