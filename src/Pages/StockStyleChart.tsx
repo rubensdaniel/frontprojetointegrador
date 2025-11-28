@@ -1,23 +1,12 @@
-import {
-  AreaChart,
-  Area,
-  XAxis,
-  YAxis,
-  Tooltip,
-  ResponsiveContainer,
-} from "recharts";
+import { AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer} from "recharts";
 
-interface ChartItem {
-  hora: string;
-  preco: number;
-}
-
-interface Props {
-  data: ChartItem[];
+interface ChartItem { hora: string;  preco: number;}
+interface Props { data: ChartItem[];
 }
 
 export default function StockStyleChart({ data }: Props) {
   return (
+    
     <div style={{ width: "100%", height: 400 }}>
       <ResponsiveContainer>
         <AreaChart data={data} margin={{ top: 20, right: 20, left: 0, bottom: 0 }}>

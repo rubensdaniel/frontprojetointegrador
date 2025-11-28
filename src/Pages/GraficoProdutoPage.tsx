@@ -1,6 +1,10 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import StockStyleChart from "./StockStyleChart";
+import Header from '../Components/Cabecalho';
+import Rodape from '../Components/Rodape';
+        
+
 
 interface EntryAPI {
   mercado: string;
@@ -62,7 +66,8 @@ export default function GraficoProdutoPage() {
   }, [nomeProduto, peso]);
 
   return (
-    <div style={{ padding: "20px" }}>
+    <div>
+       <Header />
       <h2>
         {nomeProduto} ({peso})
       </h2>
@@ -82,6 +87,7 @@ export default function GraficoProdutoPage() {
           <StockStyleChart data={porMercado[mercado]} />
         </div>
       ))}
+        <Rodape />
     </div>
   );
 }

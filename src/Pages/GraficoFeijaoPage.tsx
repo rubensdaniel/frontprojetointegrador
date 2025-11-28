@@ -1,26 +1,28 @@
 //import ProdutoChart from "./ProdutoChart";
 import CardBase from "./CardBase";
 import Header from '../Components/Cabecalho';
+import Rodape from '../Components/Rodape';
 
 export default function GraficoFeijaoPage() {
   return (
     <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        gap: "40px",
-        padding: "40px 20px",
-      }}
+      // style={{
+      //   display: "flex",
+      //   flexDirection: "column",
+      //   alignItems: "center",
+      //   gap: "40px",
+      //   padding: "40px 20px",
+      // }}
     >
         <Header />
       {/* Gráfico do produto */}
 {/*      <ProdutoChart nomeProduto="Feijão" />  */}
 
       {/* Card do produto */}
-      <div style={{ width: "100%", maxWidth: "1200px" }}>
+      <div>
         <CardFeijao />
       </div>
+        <Rodape />
     </div>
   );
 }
