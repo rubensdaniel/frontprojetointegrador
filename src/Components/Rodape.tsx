@@ -14,14 +14,6 @@ function Rodape (){
           </ul>
         </div>
 
-        {/* <div className="footer-coluna">
-          <h4>Como usar</h4>
-          <ul>
-
-            <li><Link to="/finalizacao">Após a conclusão do cadastro</Link></li>
-          </ul>
-        </div> */}
-
         <div className="footer-coluna">
           <h4>Nossas políticas</h4>
           <ul>

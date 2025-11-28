@@ -50,8 +50,8 @@ function HomeCard1() {
   const itens = [
     { marca: "arroz", peso: "5kg", emoji: "🍚" },
     { marca: "feijao", peso: "1kg", emoji: "🫘" },
-    { marca: "macarrao", peso: "500g", emoji: "🍝" },
     { marca: "farinha", peso: "1kg", emoji: "🌾" },
+    { marca: "macarrao", peso: "500g", emoji: "🍝" },
   ];
 
   useEffect(() => {
