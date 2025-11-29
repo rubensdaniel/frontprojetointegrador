@@ -47,7 +47,7 @@ function CardBase({ titulo, marca, peso }: CardBaseProps) {
         setLoading(true);
 
         const res = await fetch(
-          `http://localhost:3000/produtos/mais-repetidos?limit=20&peso=${peso}&marca=${marca}`
+          `https://projetoapisennac.onrender.com/produtos/mais-repetidos?limit=20&peso=${peso}&marca=${marca}`
         );
         const repetidos: ProdutoRepetido[] = await res.json();
 
@@ -55,7 +55,7 @@ function CardBase({ titulo, marca, peso }: CardBaseProps) {
 
         for (const item of repetidos) {
           const priceRes = await fetch(
-            `http://localhost:3000/produtos/comparacao-preco/${encodeURIComponent(
+            `https://projetoapisennac.onrender.com/produtos/comparacao-preco/${encodeURIComponent(
               item.nomeOrdenado
             )}?peso=${peso}`
           );

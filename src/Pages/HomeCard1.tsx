@@ -63,7 +63,7 @@ function HomeCard1() {
         for (const item of itens) {
           // 1) busca do mais repetido
           const urlRepetido =
-            `http://localhost:3000/produtos/mais-repetidos?limit=1&peso=${item.peso}&marca=${item.marca}`;
+            `https://projetoapisennac.onrender.com/produtos/mais-repetidos?limit=1&peso=${item.peso}&marca=${item.marca}`;
 
           const res = await fetch(urlRepetido);
           const dadosRepetido: RepetidoAPI[] = await res.json();
@@ -75,7 +75,7 @@ function HomeCard1() {
 
           // 2) comparação de preços
           const urlPreco =
-            `http://localhost:3000/produtos/comparacao-preco/${produto.nomeOrdenado}?peso=${item.peso}`;
+            `https://projetoapisennac.onrender.com/produtos/comparacao-preco/${produto.nomeOrdenado}?peso=${item.peso}`;
 
           const resPreco = await fetch(urlPreco);
           const precosAPI: PrecoAPI[] = await resPreco.json();

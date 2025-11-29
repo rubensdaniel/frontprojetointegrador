@@ -30,7 +30,7 @@ export default function GraficoProdutoPage() {
     const nome = decodeURIComponent(nomeProduto);
     const pesoFix = decodeURIComponent(peso);
 
-    fetch(`http://localhost:3000/produtos/variacao-preco/${nome}/${pesoFix}`)
+    fetch(`https://projetoapisennac.onrender.com/produtos/variacao-preco/${nome}/${pesoFix}`)
       .then((res) => res.json())
       .then((json) => {
         const convertido: ChartItem[] = json.entries.map((item: EntryAPI) => {
