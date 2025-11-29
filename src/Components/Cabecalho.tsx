@@ -26,21 +26,6 @@ const Header = () => {
         </div>
       </section>
 
-      <div>
-        <nav>
-          <ul className="nav-list">
-            <li>
-              <Link to="/login" className="nav-link">Login</Link>
-            </li>
-
-            <li>
-              <Link to="/cadastrousuario" className="nav-sublink">
-                Cadastro Usuário
-              </Link>
-            </li>
-          </ul>
-        </nav>
-      </div>
     </>
   );
 };

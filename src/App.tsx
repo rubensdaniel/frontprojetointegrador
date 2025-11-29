@@ -2,7 +2,6 @@
 import { Routes, Route} from 'react-router-dom'
 import Home from './Pages/Home'
 import TermoUso from './Pages/Termo-de-uso'
-import Login from './Pages/Login'
 import Sobre from './Pages/Sobre'
 import NotFound from './Pages/NotFound';
 import GraficoArrozPage from "./Pages/GraficoArrozPage";
@@ -12,10 +11,8 @@ import GraficoFeijaoPage from "./Pages/GraficoFeijaoPage";
 import GraficoProdutoPage from "./Pages/GraficoProdutoPage";
 import PrimeiroAcesso from './Pages/Primeiro-acesso'
 import Privacidade from './Pages/Privacidade'
-import AdminLayout from './Admin/layout/AdminLayout'
-import ProtegidoAdmin from './Admin/protecao/ProtegidoAdmin'
-import PainelUsuario from './Usuario/pages/PainelUsuario'
-import ProtegidoUsuario from './Usuario/protecao/ProtegidoUsuario'
+
+
 
 
 //import AvHome from './deletar_aula/deletar_AtvHome'
@@ -88,7 +85,6 @@ function App() {
       <Route path="/grafico/feijao" element={<GraficoFeijaoPage />} />     
       <Route path="/grafico/:nomeProduto/:peso" element={<GraficoProdutoPage />} />
       <Route path='/' element={<Home />}/>
-      <Route path='/login' element={<Login />}/>
       <Route path='/sobre' element={<Sobre />}/>    
       <Route path='/termouso' element={<TermoUso />}/>
       <Route path='/primeiroacesso' element={<PrimeiroAcesso />}/>
@@ -96,25 +92,6 @@ function App() {
       <Route path="*" element={<NotFound />} />
 
 
- 
-
-       {/* admin */}
-      <Route path="/admin" element={
-          <ProtegidoAdmin>
-            <AdminLayout />
-          </ProtegidoAdmin>
-        }
-      />
-
-      {/* usuário comum */}
-      <Route
-        path="/usuario"
-        element={
-          <ProtegidoUsuario>
-            <PainelUsuario />
-          </ProtegidoUsuario>
-        }
-      />  
       
 
 
