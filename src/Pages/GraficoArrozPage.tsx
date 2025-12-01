@@ -1,4 +1,3 @@
-//import ProdutoChart from "./ProdutoChart";
 import Header from '../Components/Cabecalho';
 import CardBase from "./CardBase";
 import Rodape from '../Components/Rodape';
@@ -7,21 +6,8 @@ import Rodape from '../Components/Rodape';
 export default function GraficoArrozPage() {
   return (
     
-    <div
-    
-      // style={{
-      //   display: "flex",
-      //   flexDirection: "column",
-
-      //   gap: "40px",
-      //   padding: "40px 20px",
-      // }}
-      
-    >
-      {/* Gráfico do produto */}
-{/*      <ProdutoChart nomeProduto="Arroz" />*/}
-<Header />
-      {/* Card do produto */}
+    <div>
+    <Header />
       <div>
         <CardArroz />
       </div>

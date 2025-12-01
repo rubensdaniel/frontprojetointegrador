@@ -2,8 +2,6 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "../Style/HomeCard1.css";
 
-
-// Tipos
 interface PrecoAPI {
   mercado: string;
   preco: string;
@@ -35,7 +33,6 @@ interface ProdutoFinal {
   economiaValor: number;
 }
 
-// Slug seguro
 const toSlug = (text?: string) =>
   (text ?? "")
     .toLowerCase()
@@ -47,7 +44,6 @@ function HomeCard1() {
   const [produtos, setProdutos] = useState<ProdutoFinal[]>([]);
   const [loading, setLoading] = useState(true);
 
-  // Lista fixa dos produtos desejados
   const itens = [
     { marca: "arroz", peso: "5kg", emoji: "🍚" },
     { marca: "feijao", peso: "1kg", emoji: "🫘" },
@@ -86,7 +82,7 @@ function HomeCard1() {
           const prices = precosAPI.map((p) => ({
             mercado: p.mercado,
             preco: Number(p.preco),
-            coletadoEm: p.coletadoEm,   // <-- ADICIONADO
+            coletadoEm: p.coletadoEm, 
           }));
 
           const menor = Math.min(...prices.map((p) => p.preco));
