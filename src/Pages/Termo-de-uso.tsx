@@ -1,5 +1,6 @@
 import '../Style/Cookies.css';
 import Header from '../Components/Cabecalho';
+import Rodape from '../Components/Rodape';
 
 
 function TermoUso() {
@@ -97,6 +98,7 @@ function TermoUso() {
         </p>
       </section>
     </main>
+    <Rodape />
 </>
 
 )

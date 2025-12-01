@@ -5,7 +5,7 @@ import Rodape from '../Components/Rodape';
 export default function GraficoMacarraoPage() {
   return (
     <div>
-  <Header />      
+      <Header />      
       <div>
         <CardMacarrao />
       </div>
@@ -14,9 +14,6 @@ export default function GraficoMacarraoPage() {
   );
 }
 
-// ---------------------------
-// Componente interno do card
-// ---------------------------
 function CardMacarrao() {
   return (
     <CardBase

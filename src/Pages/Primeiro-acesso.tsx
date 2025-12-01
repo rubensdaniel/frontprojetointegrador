@@ -1,18 +1,18 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "../Components/Cabecalho";
+import Rodape from '../Components/Rodape';
 import "../Style/primeiroAcesso.css";
 
 function PrimeiroAcesso() {
   const [step, setStep] = useState(1);
-  const navigate = useNavigate(); // hook para navegação
+  const navigate = useNavigate(); 
 
   const nextStep = () => {
     if (step < 3) setStep(step + 1);
   };
 
   const startApp = () => {
-    // redireciona para a rota principal (Home)
     navigate("/");
   };
 
@@ -75,6 +75,7 @@ function PrimeiroAcesso() {
           )}
         </div>
       </main>
+      <Rodape />
     </>
   );
 }

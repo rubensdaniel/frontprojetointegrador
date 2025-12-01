@@ -2,7 +2,6 @@ import CardBase from "./CardBase";
 import Header from '../Components/Cabecalho';
 import Rodape from '../Components/Rodape';
 
-
 export default function GraficoFarinhaPage() {
   return (
     <div>

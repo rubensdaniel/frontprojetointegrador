@@ -1,11 +1,10 @@
 import Header from "../Components/Cabecalho";
+import Rodape from '../Components/Rodape';
 import '../Style/Cookies.css'
-
 
 function Privacidade(){
     return(
         <>
-
         <Header />
 
         <main>
@@ -98,6 +97,7 @@ function Privacidade(){
         </ul>
         </section>
         </main>
+        <Rodape />
 
         </>
     

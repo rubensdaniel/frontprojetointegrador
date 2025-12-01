@@ -1,5 +1,6 @@
 import "../Style/Cookies.css";
 import Header from '../Components/Cabecalho';
+import Rodape from '../Components/Rodape';
 
 export default function QuemSomos() {
   return (
@@ -108,6 +109,7 @@ export default function QuemSomos() {
         </p>
       </section>
     </main>
+    <Rodape />
     </>
   );
 }

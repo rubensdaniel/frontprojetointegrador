@@ -2,10 +2,8 @@ import Header from '../Components/Cabecalho';
 import CardBase from "./CardBase";
 import Rodape from '../Components/Rodape';
 
-
 export default function GraficoArrozPage() {
-  return (
-    
+  return (   
     <div>
     <Header />
       <div>
